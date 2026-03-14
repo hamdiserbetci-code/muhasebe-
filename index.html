@@ -1,0 +1,3031 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Muhasebe bilgisini gerçekten anlamak için. TMS/TFRS/UFRS standartları, mali analiz, maliyet muhasebesi, 2026 asgari ücret ve vergi takvimi. Ücretsiz Türkçe kaynak.">
+<meta name="keywords" content="muhasebe, TMS, TFRS, UFRS, mali analiz, asgari ücret 2026, vergi takvimi, muhasebe standartları">
+<meta name="author" content="Hamdi Şerbetçi">
+<meta property="og:title" content="MuhasebeAkademi — Hamdi Şerbetçi">
+<meta property="og:description" content="Finansal muhasebe, TMS/TFRS/UFRS standartları ve 2026 güncel veriler. Ücretsiz, bağımsız öğrenme platformu.">
+<meta property="og:type" content="website">
+<title>MuhasebeAkademi — Hamdi Şerbetçi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── DESIGN TOKENS ── */
+:root {
+  --bg:          #f5f4f0;
+  --bg2:         #ffffff;
+  --bg3:         #f0ede8;
+  --bg4:         #e8e4de;
+  --txt:         #1c1917;
+  --txt2:        #44403c;
+  --txt3:        #78716c;
+  --txt4:        #a8a29e;
+  --accent:      #1d4ed8;
+  --accent2:     #2563eb;
+  --accent3:     #dbeafe;
+  --accent-dark: #1e3a8a;
+  --green:       #15803d;
+  --green-light: #dcfce7;
+  --green-dark:  #14532d;
+  --amber:       #b45309;
+  --amber-light: #fef3c7;
+  --red:         #b91c1c;
+  --red-light:   #fee2e2;
+  --border:      #e7e2db;
+  --border2:     #d4cec6;
+  --shadow-sm:   0 1px 2px rgba(0,0,0,.06);
+  --shadow:      0 2px 8px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.05);
+  --shadow-md:   0 8px 24px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+  --shadow-lg:   0 20px 40px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.07);
+  --radius:      10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --font:        'IBM Plex Sans', system-ui, sans-serif;
+  --font-display:'Playfair Display', Georgia, serif;
+  --font-mono:   'IBM Plex Mono', 'Courier New', monospace;
+  --transition:  .2s cubic-bezier(.4,0,.2,1);
+  --container:   1140px;
+}
+
+[data-theme="dark"] {
+  --bg:          #111110;
+  --bg2:         #1c1b18;
+  --bg3:         #252420;
+  --bg4:         #2e2c28;
+  --txt:         #f5f3f0;
+  --txt2:        #c4bfb8;
+  --txt3:        #8a8480;
+  --txt4:        #57534e;
+  --accent:      #60a5fa;
+  --accent2:     #93c5fd;
+  --accent3:     #1e3a5f;
+  --accent-dark: #bfdbfe;
+  --green:       #4ade80;
+  --green-light: #052e16;
+  --green-dark:  #bbf7d0;
+  --amber:       #fbbf24;
+  --amber-light: #451a03;
+  --red:         #f87171;
+  --red-light:   #450a0a;
+  --border:      #2c2a27;
+  --border2:     #3d3a35;
+  --shadow-sm:   0 1px 2px rgba(0,0,0,.3);
+  --shadow:      0 2px 8px rgba(0,0,0,.35);
+  --shadow-md:   0 8px 24px rgba(0,0,0,.4);
+  --shadow-lg:   0 20px 40px rgba(0,0,0,.5);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--txt);
+  line-height: 1.65;
+  transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SCROLL TO TOP ── */
+#scrollTop {
+  position: fixed; bottom: 2rem; right: 2rem;
+  width: 46px; height: 46px;
+  background: var(--txt); color: var(--bg2);
+  border: none; border-radius: 50%;
+  font-size: 18px; font-weight: 700;
+  cursor: pointer; display: none;
+  align-items: center; justify-content: center;
+  box-shadow: var(--shadow-md); z-index: 999;
+  transition: transform var(--transition), opacity var(--transition);
+}
+#scrollTop:hover { transform: translateY(-3px); }
+#scrollTop.visible { display: flex; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100; padding: 0 2rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  height: 60px;
+}
+[data-theme="dark"] nav { background: rgba(28,27,24,.92); }
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--txt); text-decoration: none;
+  white-space: nowrap; letter-spacing: -.01em;
+}
+.nav-brand span {
+  font-family: var(--font);
+  color: var(--txt3); font-weight: 400; font-size: .82rem;
+  margin-left: .4rem;
+}
+.nav-links {
+  display: flex; gap: .1rem; list-style: none;
+  overflow-x: auto; flex: 1; scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  display: block; padding: .4rem .8rem;
+  border-radius: 6px; font-size: .8rem; font-weight: 500;
+  color: var(--txt3); text-decoration: none; white-space: nowrap;
+  transition: background var(--transition), color var(--transition);
+  letter-spacing: .01em;
+}
+.nav-links a:hover { background: var(--bg3); color: var(--txt); }
+.nav-links a.nav-active { background: var(--accent3); color: var(--accent); font-weight: 600; }
+.nav-right { display: flex; gap: .5rem; align-items: center; }
+
+.nav-search {
+  display: flex; align-items: center;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 8px; padding: .32rem .75rem;
+  gap: .5rem; transition: border-color var(--transition), box-shadow var(--transition);
+}
+.nav-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent3); }
+.nav-search input {
+  background: none; border: none; outline: none;
+  font-size: .84rem; color: var(--txt);
+  width: 155px; font-family: var(--font);
+}
+.nav-search input::placeholder { color: var(--txt4); }
+
+#themeToggle {
+  background: none; border: 1px solid var(--border);
+  border-radius: 8px; padding: .35rem .65rem;
+  cursor: pointer; font-size: 1rem; color: var(--txt3);
+  transition: background var(--transition), border-color var(--transition);
+}
+#themeToggle:hover { background: var(--bg3); border-color: var(--border2); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--txt);
+  color: #f5f3f0;
+  padding: 5rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(29,78,216,.35) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(21,128,61,.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 40L0 0h80L40 40zm0 0L0 80h80L40 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 860px; margin: 0 auto; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px; padding: .3rem 1rem;
+  font-size: .75rem; letter-spacing: .08em;
+  text-transform: uppercase; font-weight: 600;
+  margin-bottom: 1.5rem; color: rgba(255,255,255,.85);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin-bottom: 1.25rem;
+  color: #f5f3f0;
+}
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.05rem; opacity: .75; max-width: 580px;
+  line-height: 1.75; margin-bottom: 2.25rem;
+}
+.hero-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .75rem 1.6rem; border-radius: 8px;
+  font-size: .9rem; font-weight: 600; text-decoration: none;
+  cursor: pointer; border: none; font-family: var(--font);
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+  letter-spacing: .01em;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-white { background: #fff; color: var(--txt); }
+.btn-outline { background: transparent; color: #f5f3f0; border: 1.5px solid rgba(255,255,255,.4); }
+.btn-outline:hover { border-color: rgba(255,255,255,.8); }
+.btn-primary { background: var(--accent); color: #fff; }
+
+.hero-stats {
+  display: flex; gap: 0; margin-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 2.25rem; flex-wrap: wrap;
+}
+.hero-stat {
+  flex: 1; min-width: 100px; text-align: center;
+  padding: 0 1.5rem;
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat strong {
+  display: block; font-family: var(--font-display);
+  font-size: 2rem; font-weight: 700; color: #fff;
+  letter-spacing: -.02em;
+}
+.hero-stat span { font-size: .75rem; opacity: .55; text-transform: uppercase; letter-spacing: .08em; }
+
+/* ── LAYOUT ── */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+section { padding: 4rem 0; }
+section + section { border-top: 1px solid var(--border); }
+
+/* ── SECTION HEADERS ── */
+.section-header { margin-bottom: 2.5rem; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--accent); margin-bottom: .75rem;
+}
+.section-label::before {
+  content: '';
+  display: inline-block; width: 20px; height: 2px;
+  background: var(--accent); border-radius: 2px;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; line-height: 1.2;
+  letter-spacing: -.025em; color: var(--txt);
+  margin-bottom: .6rem;
+}
+.section-header p {
+  font-size: .95rem; color: var(--txt3);
+  max-width: 600px; line-height: 1.7;
+}
+
+/* Keep old .tag for backward compat */
+.tag {
+  display: inline-block; font-size: .72rem; font-weight: 700;
+  padding: .22rem .7rem; border-radius: 20px;
+  margin-bottom: .75rem; text-transform: uppercase; letter-spacing: .08em;
+}
+.tag-blue { background: var(--accent3); color: var(--accent2); }
+.tag-green { background: var(--green-light); color: var(--green); }
+.tag-amber { background: var(--amber-light); color: var(--amber); }
+
+/* ── DIVIDER ── */
+.section-divider {
+  width: 48px; height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px; margin: 1rem 0 1.5rem;
+}
+
+/* ── TOPIC GRID ── */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+.topic-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; gap: .5rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  position: relative; overflow: hidden;
+}
+.topic-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--transition);
+}
+.topic-card:hover { border-color: var(--border2); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.topic-card:hover::before { transform: scaleX(1); }
+.topic-card-icon { font-size: 1.75rem; line-height: 1; }
+.topic-card h3 { font-size: 1rem; font-weight: 600; color: var(--txt); letter-spacing: -.01em; }
+.topic-card p { font-size: .84rem; color: var(--txt3); line-height: 1.6; flex: 1; }
+.topic-card-meta {
+  font-size: .72rem; color: var(--txt4);
+  display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .25rem;
+}
+.topic-card-meta span {
+  background: var(--bg3); border: 1px solid var(--border);
+  padding: .15rem .55rem; border-radius: 4px; font-weight: 500;
+}
+
+/* ── TABS ── */
+.tabs-wrapper {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden; box-shadow: var(--shadow);
+}
+.tab-nav {
+  display: flex; overflow-x: auto; scrollbar-width: none;
+  background: var(--bg3); border-bottom: 1px solid var(--border);
+  padding: .25rem .5rem; gap: .25rem;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+  padding: .55rem 1.1rem; border: none;
+  background: transparent; border-radius: 7px;
+  font-family: var(--font); font-size: .82rem; font-weight: 500;
+  color: var(--txt3); cursor: pointer; white-space: nowrap;
+  transition: color var(--transition), background var(--transition);
+}
+.tab-btn:hover { background: var(--bg4); color: var(--txt2); }
+.tab-btn.active { background: var(--bg2); color: var(--accent); font-weight: 600; box-shadow: var(--shadow-sm); }
+.tab-panel { display: none; padding: 2rem 2rem 2.25rem; }
+.tab-panel.active { display: block; }
+/* ── SAYFA NAVİGASYONU ── */
+.page-section { display: none !important; }
+.page-section.active-section { display: block !important; }
+
+
+/* Panel headings */
+.tab-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem; font-weight: 700;
+  letter-spacing: -.02em; color: var(--txt);
+  padding-bottom: .75rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+.tab-panel h4 {
+  font-size: .92rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--accent); margin-bottom: .75rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.tab-panel h4::after {
+  content: ''; flex: 1; height: 1px;
+  background: var(--border);
+}
+
+/* ── CODE BLOCKS ── */
+pre {
+  background: var(--txt);
+  color: #c9c0b5;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: .79rem; line-height: 1.8;
+  overflow-x: auto; white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+[data-theme="dark"] pre { background: #0a0908; color: #c4bfb8; }
+pre strong { color: #93c5fd; }
+.code-label {
+  display: inline-block;
+  font-size: .65rem; font-weight: 700; color: var(--accent2);
+  text-transform: uppercase; letter-spacing: .12em;
+  background: var(--accent3); padding: .2rem .6rem;
+  border-radius: 4px; margin-bottom: .5rem;
+}
+
+/* ── CALLOUT ── */
+.callout {
+  border-radius: var(--radius); padding: 1rem 1.25rem;
+  margin: 1.25rem 0; display: flex; gap: .85rem;
+  align-items: flex-start; font-size: .88rem; line-height: 1.65;
+}
+.callout-icon { font-size: 1.15rem; flex-shrink: 0; margin-top: .05rem; }
+.callout-warn { background: var(--amber-light); border-left: 3px solid var(--amber); }
+.callout-info { background: var(--accent3); border-left: 3px solid var(--accent); }
+.callout-success { background: var(--green-light); border-left: 3px solid var(--green); }
+
+/* ── TABLES ── */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+thead { background: var(--bg3); }
+th {
+  text-align: left; padding: .8rem 1rem;
+  font-size: .74rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .07em;
+  color: var(--txt3); border-bottom: 1px solid var(--border);
+}
+td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--bg3); }
+.num { font-family: var(--font-mono); text-align: right; font-size: .84rem; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+
+/* Stat cards */
+.stat-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm); position: relative;
+  overflow: hidden;
+}
+.stat-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.stat-card .label {
+  font-size: .72rem; color: var(--txt4); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .09em;
+}
+.stat-card .value {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--txt); margin: .35rem 0 .2rem;
+  letter-spacing: -.02em;
+}
+.stat-card .sub { font-size: .78rem; color: var(--txt3); }
+
+/* ── CALC ── */
+.calc-.calc-.calc-section {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+  gap: 1.25rem; margin-top: 1rem;
+}
+.calc-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.calc-card h4 {
+  font-size: .95rem; font-weight: 700; margin-bottom: 1.1rem;
+  display: flex; align-items: center; gap: .5rem;
+  padding-bottom: .75rem; border-bottom: 1px solid var(--border);
+  color: var(--txt);
+}
+.field { margin-bottom: .8rem; }
+.field label { display: block; font-size: .78rem; font-weight: 600; color: var(--txt3); margin-bottom: .35rem; text-transform: uppercase; letter-spacing: .05em; }
+.field input {
+  width: 100%; background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 7px; padding: .55rem .8rem;
+  font-size: .9rem; color: var(--txt);
+  font-family: var(--font-mono); outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent3); }
+.calc-btn {
+  width: 100%; background: var(--txt); color: var(--bg2);
+  border: none; border-radius: 7px; padding: .65rem;
+  font-size: .85rem; font-weight: 600; cursor: pointer;
+  font-family: var(--font); margin-top: .3rem;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.calc-btn:hover { opacity: .85; transform: translateY(-1px); }
+.calc-result {
+  margin-top: .9rem; background: var(--bg3);
+  border-radius: 8px; padding: .9rem 1rem;
+  border: 1px solid var(--border);
+}
+.result-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .84rem; padding: .3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.result-row:last-child { border-bottom: none; }
+.result-row .rval { font-weight: 700; font-family: var(--font-mono); }
+.result-row .good { color: var(--green); }
+.result-row .warn { color: var(--amber); }
+.result-row .bad { color: var(--red); }
+
+/* ── QUIZ ── */
+.quiz-wrap {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); padding: 2rem;
+  box-shadow: var(--shadow); max-width: 720px;
+}
+.quiz-progress { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.quiz-progress-bar { flex: 1; height: 5px; background: var(--border); border-radius: 3px; margin: 0 1rem; }
+.quiz-progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width .4s ease; }
+.quiz-q {
+  font-size: 1.05rem; font-weight: 600; margin-bottom: 1.5rem; line-height: 1.55;
+  font-family: var(--font-display); letter-spacing: -.01em;
+}
+.quiz-options { display: flex; flex-direction: column; gap: .65rem; }
+.quiz-opt {
+  background: var(--bg3); border: 1.5px solid var(--border);
+  border-radius: 9px; padding: .85rem 1.1rem;
+  cursor: pointer; font-size: .9rem; text-align: left;
+  font-family: var(--font); color: var(--txt);
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent3); transform: translateX(4px); }
+.quiz-opt.correct { border-color: var(--green); background: var(--green-light); color: var(--green-dark); }
+.quiz-opt.wrong { border-color: var(--red); background: var(--red-light); color: var(--red); }
+.quiz-explanation {
+  margin-top: 1.1rem; padding: 1rem 1.25rem;
+  background: var(--accent3); border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0; font-size: .87rem; color: var(--txt2);
+  line-height: 1.7; display: none;
+}
+.quiz-actions { margin-top: 1.4rem; display: flex; gap: .75rem; align-items: center; }
+.quiz-score { text-align: center; padding: 2.5rem; display: none; }
+.quiz-score-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 900; color: var(--accent); }
+.quiz-score p { color: var(--txt3); margin: .5rem 0 1.75rem; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 2.25rem; }
+.timeline::before {
+  content: ''; position: absolute; left: .7rem; top: .5rem; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
+}
+.timeline-item { position: relative; margin-bottom: 1.75rem; }
+.timeline-dot {
+  position: absolute; left: -1.8rem; top: .35rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.timeline-date {
+  font-size: .74rem; color: var(--accent); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em; margin-bottom: .3rem;
+}
+.timeline-content h4 { font-size: .95rem; font-weight: 600; margin-bottom: .2rem; }
+.timeline-content p { font-size: .84rem; color: var(--txt3); line-height: 1.6; }
+
+/* ── MONTH GRID ── */
+.months-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.month-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.1rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+.month-card h4 {
+  font-size: .88rem; font-weight: 700; margin-bottom: .65rem;
+  padding-bottom: .5rem; border-bottom: 2px solid var(--border);
+  display: flex; align-items: center; gap: .4rem; color: var(--txt);
+}
+.month-star { color: var(--amber); }
+.month-item {
+  font-size: .79rem; color: var(--txt3); padding: .28rem 0;
+  border-bottom: 1px dotted var(--border);
+  display: flex; align-items: flex-start; gap: .4rem;
+}
+.month-item:last-child { border-bottom: none; }
+.month-item .date-badge {
+  background: var(--accent3); color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .68rem; font-weight: 600;
+  padding: .15rem .4rem; border-radius: 4px;
+  white-space: nowrap; flex-shrink: 0;
+}
+
+/* ── FAQ ── */
+.faq-item {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  margin-bottom: .5rem; overflow: hidden;
+}
+.faq-q {
+  width: 100%; text-align: left; background: var(--bg2);
+  border: none; padding: 1.05rem 1.25rem;
+  font-family: var(--font); font-size: .9rem; font-weight: 600;
+  color: var(--txt); cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  transition: background var(--transition);
+}
+.faq-q:hover { background: var(--bg3); }
+.faq-q .arrow { transition: transform var(--transition); font-size: .8rem; color: var(--txt4); }
+.faq-q.open .arrow { transform: rotate(180deg); }
+.faq-a { display: none; padding: .25rem 1.25rem 1.1rem; font-size: .87rem; color: var(--txt3); line-height: 1.75; background: var(--bg2); }
+.faq-a.open { display: block; }
+
+/* ── ERP GRID ── */
+.erp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.1rem; }
+.erp-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm); transition: box-shadow var(--transition), transform var(--transition);
+}
+.erp-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.erp-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: .2rem; }
+.erp-card .sub { font-size: .78rem; color: var(--txt4); margin-bottom: .75rem; }
+.erp-badge { display: inline-block; font-size: .68rem; font-weight: 700; padding: .2rem .65rem; border-radius: 12px; margin-bottom: .85rem; letter-spacing: .04em; }
+.erp-list { list-style: none; }
+.erp-list li {
+  font-size: .82rem; color: var(--txt3); padding: .3rem 0;
+  border-bottom: 1px dotted var(--border);
+  display: flex; align-items: flex-start; gap: .5rem; line-height: 1.5;
+}
+.erp-list li::before { content: '›'; color: var(--accent); flex-shrink: 0; font-weight: 900; margin-top: .05rem; }
+.erp-list li:last-child { border-bottom: none; }
+
+/* ── CHECKLIST ── */
+.checklist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.1rem; }
+.checklist-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.4rem;
+}
+.checklist-card h4 {
+  font-size: .88rem; font-weight: 700; margin-bottom: .85rem;
+  text-transform: uppercase; letter-spacing: .07em; color: var(--txt);
+  display: flex; align-items: center; gap: .5rem;
+  padding-bottom: .6rem; border-bottom: 1px solid var(--border);
+}
+.cl-item {
+  display: flex; align-items: flex-start; gap: .6rem;
+  padding: .4rem 0; cursor: pointer; font-size: .85rem;
+  color: var(--txt2); border-bottom: 1px solid var(--bg3); line-height: 1.45;
+}
+.cl-item:last-child { border-bottom: none; }
+.cl-item input[type=checkbox] { margin-top: .15rem; flex-shrink: 0; accent-color: var(--green); width: 15px; height: 15px; cursor: pointer; }
+.cl-item:has(input:checked) span { text-decoration: line-through; color: var(--txt4); }
+.check-item {
+  display: flex; align-items: flex-start; gap: .6rem;
+  padding: .32rem 0; font-size: .84rem; color: var(--txt3);
+  border-bottom: 1px dotted var(--border); cursor: pointer; user-select: none;
+}
+.check-item:last-child { border-bottom: none; }
+.check-item input[type=checkbox] { margin-top: .15rem; accent-color: var(--accent); }
+.check-item.done { text-decoration: line-through; opacity: .45; }
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box {
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--bg3) 100%);
+  border: 1px solid rgba(29,78,216,.15);
+  border-radius: var(--radius-lg); padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0;
+}
+.highlight-box h4 { font-size: .95rem; font-weight: 700; color: var(--accent); margin-bottom: .5rem; }
+.highlight-box p { font-size: .88rem; color: var(--txt2); line-height: 1.65; }
+
+/* ── EXAMPLE BLOCK ── */
+.example-block {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; margin: 1.25rem 0;
+}
+.example-header {
+  background: var(--bg3); padding: .55rem 1rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--txt3);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: .5rem;
+}
+.example-header::before { content: '▶'; color: var(--accent); font-size: .65rem; }
+.example-body { padding: 1rem 1.25rem; background: var(--bg2); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--txt); color: rgba(245,243,240,.6);
+  padding: 3rem 2rem; text-align: center; font-size: .84rem;
+}
+footer strong { color: #f5f3f0; font-family: var(--font-display); font-size: 1rem; }
+.footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
+.footer-links a { color: rgba(245,243,240,.4); text-decoration: none; font-size: .8rem; transition: color var(--transition); letter-spacing: .02em; }
+.footer-links a:hover { color: rgba(245,243,240,.85); }
+
+/* ── SEARCH HIGHLIGHT ── */
+.highlight { background: #fef08a; border-radius: 2px; }
+[data-theme="dark"] .highlight { background: #713f12; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-in { animation: fadeUp .55s cubic-bezier(.4,0,.2,1) both; }
+
+/* ── DOWNLOAD CARDS ── */
+.dl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+.dl-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; gap: .75rem;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  position: relative; overflow: hidden;
+}
+.dl-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--border2); }
+.dl-card-top { display: flex; align-items: flex-start; gap: 1rem; }
+.dl-icon {
+  width: 48px; height: 48px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.dl-icon-xlsx { background: #dcfce7; }
+.dl-icon-pdf  { background: #fee2e2; }
+.dl-card-info { flex: 1; }
+.dl-card-info h4 { font-size: .95rem; font-weight: 700; color: var(--txt); letter-spacing: -.01em; line-height: 1.35; margin-bottom: .25rem; }
+.dl-card-info p  { font-size: .82rem; color: var(--txt3); line-height: 1.55; }
+.dl-meta { display: flex; gap: .5rem; flex-wrap: wrap; }
+.dl-badge {
+  font-size: .68rem; font-weight: 700; padding: .18rem .55rem;
+  border-radius: 4px; text-transform: uppercase; letter-spacing: .06em;
+}
+.dl-badge-xlsx { background: #dcfce7; color: #15803d; }
+.dl-badge-pdf  { background: #fee2e2; color: #b91c1c; }
+.dl-badge-info { background: var(--bg3); color: var(--txt3); border: 1px solid var(--border); }
+.dl-sheets { font-size: .78rem; color: var(--txt4); }
+.dl-sheets span { color: var(--txt3); font-weight: 600; }
+.dl-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .6rem 1.1rem; border-radius: 7px;
+  font-size: .82rem; font-weight: 600;
+  text-decoration: none; cursor: pointer;
+  font-family: var(--font); border: none;
+  transition: opacity var(--transition), transform var(--transition);
+  margin-top: auto;
+}
+.dl-btn:hover { opacity: .88; transform: translateY(-1px); }
+.dl-btn-xlsx { background: var(--green); color: #fff; }
+.dl-btn-pdf  { background: var(--red); color: #fff; }
+
+/* ── PRINT ── */
+@media print {
+  nav, footer, #scrollTop, .hero-btns, .calc-btn, .quiz-actions, .nav-search, #themeToggle { display: none !important; }
+  .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 1.5rem; }
+  .tabs-wrapper { box-shadow: none; border: 1px solid #ccc; }
+  .tab-panel { display: block !important; }
+  section { break-inside: avoid; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-search input { width: 105px; }
+  .hero { padding: 3rem 1.25rem 2.5rem; }
+  .hero-stats { gap: 0; }
+  .hero-stat { padding: 0 1rem; }
+  section { padding: 2.5rem 0; }
+  .container { padding: 0 1.25rem; }
+  .calc-section { grid-template-columns: 1fr; }
+  .months-grid { grid-template-columns: 1fr 1fr; }
+  .tab-panel { padding: 1.25rem; }
+}
+@media (max-width: 480px) {
+  .months-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .topic-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 1.25rem; }
+  .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 1.25rem; }
+  .hero-stat:last-child { border-bottom: none; }
+}
+
+/* ── BÖLÜM GEÇİŞ ANİMASYONU ── */
+.page-section.active-.page-section.active-section {
+  display: block !important;
+  animation: sectionFadeIn .25s ease both;
+}
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── NAV AKTİF LİNK ── */
+.nav-links a.nav-active {
+  background: var(--accent3);
+  color: var(--accent);
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL TO TOP -->
+<button id="scrollTop" title="Yukarı çık" aria-label="Yukarı çık">↑</button>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#" onclick="showSection('konular');return false;">MuhasebeAkademi <span>— Hamdi Şerbetçi</span></a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showSection('konular');return false;">Konular</a></li>
+    <li><a href="#" onclick="showSection('standartlar');return false;">Maliyet</a></li>
+    <li><a href="#" onclick="showSection('tablolar');return false;">Mali Tablolar</a></li>
+    <li><a href="#" onclick="showSection('analiz');return false;">Analiz</a></li>
+    <li><a href="#" onclick="showSection('takvim');return false;">Vergi Takvimi</a></li>
+    <li><a href="#" onclick="showSection('asgari');return false;">2026 Ücret</a></li>
+    <li><a href="#" onclick="showSection('erp');return false;">ERP</a></li>
+    <li><a href="#" onclick="showSection('aysonu');return false;">Ay Sonu</a></li>
+    <li><a href="#" onclick="showSection('belgeler');return false;">İndir</a></li>
+    <li><a href="#" onclick="showSection('quiz');return false;">Test</a></li>
+
+  </ul>
+  <div class="nav-right">
+    <div class="nav-search">
+      <span style="color:var(--txt3);font-size:.9rem">🔍</span>
+      <input id="searchInput" type="text" placeholder="Ara..." oninput="doSearch(this.value)">
+    </div>
+    <button id="themeToggle" title="Tema değiştir">🌙</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🎓 Ücretsiz · Gönüllü · Bağımsız Öğrenme Platformu</div>
+    <h1>Muhasebe <em>bilgisini</em><br>gerçekten anlamak için.</h1>
+    <p>Finansal muhasebe, TMS/TFRS/UFRS standartları, mali analiz, maliyet muhasebesi, İK muhasebesi, ERP sistemleri ve 2026 asgari ücret &amp; vergi takvimi — kapsamlı, özgün, Türkçe.</p>
+    <div class="hero-btns">
+      <a href="#" onclick="showSection('konular');return false;" class="btn btn-white">Konuları Keşfet ↓</a>
+
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>12+</strong><span>Ana Konu</span></div>
+      <div class="hero-stat"><strong>TFRS</strong><span>Uyumlu</span></div>
+      <div class="hero-stat"><strong>2026</strong><span>Güncel</span></div>
+      <div class="hero-stat"><strong>%100</strong><span>Ücretsiz</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+<!-- KONULAR -->
+<section id="konular" class="page-section active-section">
+  <div class="section-header">
+    <div class="section-label">İçerik Haritası</div>
+    <h2>Tüm Konular</h2>
+    <div class="section-divider"></div>
+    <p>Her konu derinlemesine ele alınmış; gerçek örnek, yevmiye kayıtları ve uygulamalarla desteklenmiştir.</p>
+  </div>
+  <div class="topic-grid">
+    <a href="#" onclick="showSection('standartlar');return false;" class="topic-card fade-in">
+      <div class="topic-card-icon">🧾</div>
+      <h3>Finansal Muhasebe</h3>
+      <p>Tekdüzen hesap planı, dönem sonu işlemleri, amortisman, stok yönetimi ve yevmiye kayıtları.</p>
+      <div class="topic-card-meta"><span>VUK Uyumlu</span><span>40+ Örnek</span></div>
+    </a>
+    <a href="#" onclick="showSection('tablolar');return false;" class="topic-card fade-in">
+      <div class="topic-card-icon">📊</div>
+      <h3>Mali Tablolar</h3>
+      <p>Bilanço, gelir tablosu, nakit akış tablosu hazırlama — TFRS uyumlu örnek şirket senaryosu.</p>
+      <div class="topic-card-meta"><span>İnteraktif Tablolar</span></div>
+    </a>
+    <a href="#" onclick="showSection('analiz');return false;" class="topic-card fade-in">
+      <div class="topic-card-icon">🔍</div>
+      <h3>Mali Analiz</h3>
+      <p>Likidite, kârlılık, kaldıraç, devir hızı oranları — anlık hesaplama ve otomatik yorum.</p>
+      <div class="topic-card-meta"><span>İnteraktif Hesaplayıcı</span></div>
+    </a>
+    <a href="#" onclick="showSection('standartlar');return false;" class="topic-card fade-in">
+      <div class="topic-card-icon">🏭</div>
+      <h3>Maliyet Muhasebesi</h3>
+      <p>Üretim maliyeti, standart maliyet sistemi, sapma analizi, ABC maliyet yöntemi.</p>
+      <div class="topic-card-meta"><span>Standart Maliyet</span><span>ABC</span></div>
+    </a>
+    <a href="#" onclick="showSection('asgari');return false;" class="topic-card fade-in">
+      <div class="topic-card-icon">👩‍💼</div>
+      <h3>İnsan Kaynakları</h3>
+      <p>Bordro muhasebesi, 2026 asgari ücret hesabı, kıdem tazminatı karşılıkları, TMS 19.</p>
+      <div class="topic-card-meta"><span>2026 Güncel</span></div>
+    </a>
+    <a href="#" onclick="showSection('takvim');return false;" class="topic-card fade-in">
+      <div class="topic-card-icon">📅</div>
+      <h3>2026 Vergi Takvimi</h3>
+      <p>KDV, muhtasar, geçici vergi, kurumlar vergisi — aylık beyanname ve ödeme takvimleri.</p>
+      <div class="topic-card-meta"><span>2026 Güncel</span></div>
+    </a>
+    <a href="#" onclick="showSection('erp');return false;" class="topic-card fade-in">
+      <div class="topic-card-icon">⚙️</div>
+      <h3>ERP Yazılımları</h3>
+      <p>SAP, Logo, Netsis, Mikro, Microsoft D365 muhasebe modülleri ve karşılaştırmalı inceleme.</p>
+      <div class="topic-card-meta"><span>5 Platform</span><span>Uygulama</span></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- STANDARTLAR -->
+<section id="standartlar" class="page-section">
+  <div class="section-header">
+    <div class="section-label">Finansal Yönetim</div>
+    <h2>Maliyet Muhasebesi</h2>
+    <div class="section-divider"></div>
+    <p>Üretim maliyetlerinin ölçülmesi, sistematik dağıtımı, sapma analizi ve karar destek sistemleri.</p>
+  </div>
+
+  <div class="tabs-wrapper">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'m-genel')">Temel Kavramlar</button>
+      <button class="tab-btn" onclick="switchTab(this,'m-sistemler')">Maliyet Sistemleri</button>
+      <button class="tab-btn" onclick="switchTab(this,'m-sapma')">Sapma Analizi</button>
+      <button class="tab-btn" onclick="switchTab(this,'m-gug')">GÜG Dağıtımı</button>
+      <button class="tab-btn" onclick="switchTab(this,'m-abc')">ABC Maliyet</button>
+      <button class="tab-btn" onclick="switchTab(this,'m-bepanaliz')">BEP Analizi</button>
+    </div>
+
+    <div id="m-genel" class="tab-panel active">
+      <h3>Temel Maliyet Kavramları ve Sınıflandırması</h3>
+      <p style="margin-bottom:1.5rem;color:var(--txt3);font-size:.92rem;line-height:1.75">Maliyet muhasebesi, işletmenin üretim ve faaliyet maliyetlerini ölçerek hem finansal tablolara (stok değerleme, SMM) hem de yönetim kararlarına (fiyatlama, kapasite, bütçe) girdi sağlar.</p>
+
+      <h4>Maliyet Bileşenleri ve Hesap Kodları</h4>
+      <pre>ÜRETİM MALİYETİ BİLEŞENLERİ (THP — 7'li Sistem):
+═════════════════════════════════════════════════════════════════
+  710 Direkt İlk Madde ve Malzeme (DIMM)
+      → Mamule doğrudan yüklenebilen ham/yarı işlenmiş malzeme
+      → Örnek: Araba üretiminde çelik levha, boya
+
+  720 Direkt İşçilik (Dİ)
+      → Mamule doğrudan bağlanabilen işgücü maliyeti
+      → Örnek: Kaynak ustasının saatlik ücreti
+
+  730 Genel Üretim Giderleri (GÜG)
+      → Endirekt malzeme, endirekt işçilik, fabrika kirası,
+        amortisman, enerji, sigorta, bakım-onarım
+
+─────────────────────────────────────────────────────────────────
+  PRİM MALİYETİ     = DIMM + Dİ
+  DÖNÜŞÜM MALİYETİ = Dİ   + GÜG
+  TOPLAM ÜRETİM M. = DIMM + Dİ + GÜG</pre>
+
+      <h4>Maliyet Davranışına Göre Sınıflandırma</h4>
+      <div class="card-grid">
+        <div class="card">
+          <strong style="color:var(--accent)">Değişken Maliyet</strong>
+          <p style="font-size:.85rem;margin-top:.5rem;color:var(--txt3)">Üretim hacmiyle orantılı artar/azalır. Birim başına sabit kalır. Ham madde, parça başı işçilik, ambalaj.</p>
+          <p style="font-size:.8rem;margin-top:.4rem;font-family:var(--font-mono);color:var(--accent)">TVM = b × Q</p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--amber)">Sabit Maliyet</strong>
+          <p style="font-size:.85rem;margin-top:.5rem;color:var(--txt3)">Hacimden bağımsız, toplam tutarı sabit. Birim başına düşer. Fabrika kirası, amortisman, yönetici maaşı.</p>
+          <p style="font-size:.8rem;margin-top:.4rem;font-family:var(--font-mono);color:var(--amber)">TSM = a (sabit)</p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--green)">Yarı Değişken</strong>
+          <p style="font-size:.85rem;margin-top:.5rem;color:var(--txt3)">Sabit baz + değişken kısım içerir. Elektrik faturası, bakım sözleşmesi, telefon.</p>
+          <p style="font-size:.8rem;margin-top:.4rem;font-family:var(--font-mono);color:var(--green)">TC = a + b × Q</p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--txt2)">Kademeli Sabit</strong>
+          <p style="font-size:.85rem;margin-top:.5rem;color:var(--txt3)">Belirli kapasite aralıklarında sabit, aralık aşılınca atlar. Ek vardiya, ekstra makine.</p>
+          <p style="font-size:.8rem;margin-top:.4rem;font-family:var(--font-mono);color:var(--txt3)">Merdiven fonksiyonu</p>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top:1.5rem">
+        <h4>⚡ Yönetim Muhasebesi vs. Finansal Muhasebe</h4>
+        <p>Maliyet muhasebesi <strong>iç kullanıma</strong> yöneliktir — zorunlu format yoktur, haftalık/günlük raporlanabilir. Finansal muhasebe ise <strong>dış paydaşlar</strong> için standart formatlarda (TFRS/VUK) hazırlanır. İkisi birbirini besler: stok değerlemesi ve SMM hesabı maliyet muhasebesinden finansal tablolara akar.</p>
+      </div>
+    </div>
+
+    <div id="m-sistemler" class="tab-panel">
+      <h3>Maliyet Sistemleri — Sipariş, Safha, Karma</h3>
+      <p style="margin-bottom:1.5rem;color:var(--txt3);font-size:.92rem">Hangi sistemin seçileceği üretim türüne, sürecin homojenliğine ve maliyet bilgisinin ne düzeyde isteneceğine bağlıdır.</p>
+
+      <h4>Sipariş Maliyeti Sistemi — Örnek</h4>
+      <div class="example-block">
+        <div class="example-header">Senaryo: Özel Makine İmalatı — Sipariş No: 2026-047</div>
+        <div class="example-body">
+<pre>MÜŞTERİ: Ege Tekstil A.Ş. | ÜRÜN: Özel dokuma makinesi
+───────────────────────────────────────────────────────────────
+MALIYET KARTI:
+  DIMM (çelik, rulman, elektronik)     148.000 TL
+  Direkt İşçilik (620 saat × 220 TL)  136.400 TL
+  GÜG (620 saat × 180 TL DİS oranı)   111.600 TL
+───────────────────────────────────────────────────────────────
+  TOPLAM ÜRETIM MALİYETİ              396.000 TL
+  Satış Fiyatı                        520.000 TL
+  BRÜT KAR                            124.000 TL  (%23,8)
+
+MUHASEBE KAYDI (tamamlanma):
+  152 Mamuller                     396.000
+    711 DIMM Yansıtma                        148.000
+    721 Dİ Yansıtma                          136.400
+    731 GÜG Yansıtma                         111.600</pre>
+        </div>
+      </div>
+
+      <h4>Safha Maliyeti Sistemi — Örnek</h4>
+      <div class="example-block">
+        <div class="example-header">Senaryo: Çimento Üretimi — Ocak 2026 Safha 1 (Klinker)</div>
+        <div class="example-body">
+<pre>DÖNEM BAŞI YAM (WIP): 2.000 ton — %40 tamamlanma
+DÖNEM BAŞI MALİYETİ : 3.200.000 TL
+DÖNEM GİRİŞİ       : 18.000 ton
+DÖNEM SONU YAM     : 3.000 ton — %60 tamamlanma
+TAMAMLANAN MAMULLER: 17.000 ton
+
+EŞDEĞİR ÜRETİM (Ağırlıklı Ortalama):
+  Tamamlanan            : 17.000 ton
+  Dönem sonu YAM katkısı: 3.000 × %60 = 1.800 ton
+  TOPLAM EŞDEĞİR ÜRETİM: 18.800 ton
+
+DÖNEM TOPLAM MALİYETİ: 28.200.000 TL
+BİRİM MALİYET        : 28.200.000 / 18.800 = 1.500 TL/ton
+
+Tamamlanan mamullere: 17.000 × 1.500 = 25.500.000 TL
+Dönem sonu YAM'a    : 1.800 × 1.500  =  2.700.000 TL</pre>
+        </div>
+      </div>
+
+      <div class="card-grid" style="margin-top:1.25rem">
+        <div class="card"><strong>Sipariş Maliyeti</strong><p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Her iş emrine maliyet kartı açılır. İnşaat, özel makine, reklam, matbaa. Her sipariş farklı maliyete sahip olabilir.</p></div>
+        <div class="card"><strong>Safha Maliyeti</strong><p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Süreç veya departman bazlı. Çimento, şeker, kimya, tekstil. Homojen, yığın üretimde kullanılır.</p></div>
+        <div class="card"><strong>Karma Sistem</strong><p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Seri üretimde sipariş bazlı takip. Otomotiv, elektronik. Her model için ayrı iş emri, safha geçişleri var.</p></div>
+        <div class="card"><strong>Faaliyet Bazlı (ABC)</strong><p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">GÜG'ü faaliyetler aracılığıyla mamullere yükler. Çok çeşitli ürün gamı olan işletmeler için idealdir.</p></div>
+      </div>
+    </div>
+
+    <div id="m-sapma" class="tab-panel">
+      <h3>Standart Maliyet ve Sapma Analizi</h3>
+      <p style="margin-bottom:1.5rem;color:var(--txt3);font-size:.92rem">Standart maliyet, önceden belirlenen birim başına maliyet hedefidir. Gerçekleşen ile karşılaştırıldığında sapmalar ortaya çıkar; bu sapmalar yönetimin dikkatini nereye çevirmesi gerektiğini gösterir.</p>
+
+      <h4>Formüller</h4>
+      <pre>MALZEME SAPMALARI:
+  Fiyat Sapması   = (Std Fiyat − Ger. Fiyat) × Ger. Satın Alma Miktarı
+  Miktar Sapması  = (Std Miktar − Ger. Miktar) × Std Fiyat
+
+İŞÇİLİK SAPMALARI:
+  Ücret Sapması        = (Std Ücret − Ger. Ücret) × Ger. Saat
+  Verimlilik Sapması   = (Std Saat − Ger. Saat) × Std Ücret
+
+GÜG SAPMALARI (Esnek Bütçe Yaklaşımı):
+  Harcama Sapması  = Esnek Bütçe GÜG − Gerçek GÜG
+  Verimlilik Sap.  = Emilen GÜG − Esnek Bütçe GÜG
+  Hacim Sapması    = Emilen GÜG − Std GÜG (sabit bütçe)</pre>
+
+      <div class="example-block">
+        <div class="example-header">Kapsamlı Sapma Analizi Örneği — Metal Pres Parça Üretimi</div>
+        <div class="example-body">
+<pre>STD MALİYETLER (1 birim için):
+  DIMM : 5 kg × 40 TL/kg        = 200 TL
+  Dİ   : 2 saat × 220 TL/saat   = 440 TL
+  GÜG  : 2 saat × 150 TL/saat   = 300 TL
+  TOPLAM STD MALİYET             = 940 TL/birim
+
+GERÇEKLEŞMELEr (1.000 birim üretim):
+  DIMM : 5.200 kg satın alındı × 38 TL/kg = 197.600 TL
+         5.100 kg kullanıldı
+  Dİ   : 2.050 saat × 230 TL/saat         = 471.500 TL
+  GÜG  :                                    315.000 TL
+
+SAPMA HESABI:
+  Malzeme Fiyat Sap. = (40−38) × 5.200    = +10.400 TL ELVERİŞLİ ✓
+  Malzeme Miktar Sap = (5.000−5.100) × 40 =  −4.000 TL ELVERİŞSİZ ✗
+  İşçilik Ücret Sap. = (220−230) × 2.050  = −20.500 TL ELVERİŞSİZ ✗
+  İşçilik Ver.  Sap. = (2.000−2.050) × 220=  −11.000 TL ELVERİŞSİZ ✗
+  GÜG Harcama  Sap.  = (300.000−315.000)  = −15.000 TL ELVERİŞSİZ ✗
+
+YORUM: Hammadde ucuza alındı (+) ancak fazla kullanıldı (−).
+       İşçilik hem pahalı hem yavaş → süreç iyileştirmesi gerekebilir.</pre>
+        </div>
+      </div>
+    </div>
+
+    <div id="m-gug" class="tab-panel">
+      <h3>GÜG Dağıtımı — Geleneksel ve Modern Yöntemler</h3>
+      <p style="margin-bottom:1.5rem;color:var(--txt3);font-size:.92rem">Genel Üretim Giderleri doğrudan mamule yüklenemez; dağıtım anahtarı (yükleme oranı) aracılığıyla mamullere aktarılır. Dağıtım yöntemi seçimi maliyet doğruluğunu doğrudan etkiler.</p>
+
+      <h4>Geleneksel GÜG Dağıtım Yöntemi</h4>
+      <pre>GÜG YÜKLEME ORANI = Tahmini GÜG / Tahmini Dağıtım Tabanı
+
+Yaygın Dağıtım Tabanları:
+  • Direkt işçilik saati (DİS)   → emek yoğun üretim
+  • Makine saati                 → otomasyon ağırlıklı
+  • Direkt işçilik ücreti        → ücret dağılımı homojen ise
+  • Üretim birimi                → tek ürün üretimi
+
+ÖRNEK (fabrika geneli tek oran):
+  Yıllık Tahmini GÜG      : 4.800.000 TL
+  Tahmini DİS              : 24.000 saat
+  GÜG Yükleme Oranı       : 4.800.000 / 24.000 = 200 TL/DİS
+
+  Ürün A (300 DİS × 200) = 60.000 TL GÜG yüklenir
+  Ürün B (120 DİS × 200) = 24.000 TL GÜG yüklenir</pre>
+
+      <h4>Departman Bazlı GÜG Dağıtımı (Daha Doğru)</h4>
+      <div class="example-block">
+        <div class="example-header">Örnek: 2 Üretim Departmanı + 1 Hizmet Departmanı</div>
+        <div class="example-body">
+<pre>HİZMET DEP. (Bakım): Gideri 480.000 TL
+  → Pres Dep'a %60 → 288.000 TL
+  → Montaj Dep'a %40 → 192.000 TL
+
+PRES DEPARTMANI:
+  Kendi GÜG'ü      :  900.000 TL
+  Bakım payı       :  288.000 TL
+  Toplam           : 1.188.000 TL
+  Makine saati     :  12.000 saat
+  GÜG Oranı        : 99 TL/makine saati
+
+MONTAJ DEPARTMANI:
+  Kendi GÜG'ü      :  640.000 TL
+  Bakım payı       :  192.000 TL
+  Toplam           :  832.000 TL
+  DİS              :  16.000 saat
+  GÜG Oranı        : 52 TL/DİS</pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <span class="callout-icon">⚠️</span>
+        <div><strong>Kapasiteye Dikkat:</strong> GÜG oranı <em>normal kapasiteye</em> göre hesaplanmalıdır (TMS 2 gereği). Fiili kapasite kullanımı düştüğünde emilemeyen (eksik emilen) GÜG oluşur ve dönem gideri olarak kaydedilir.</div>
+      </div>
+    </div>
+
+    <div id="m-abc" class="tab-panel">
+      <h3>Faaliyet Tabanlı Maliyetleme (ABC)</h3>
+      <p style="margin-bottom:1.5rem;color:var(--txt3);font-size:.92rem">ABC, GÜG'ü önce <em>faaliyetlere</em>, sonra mamullere yükler. Çok çeşitli ürün gamı olan işletmelerde geleneksel yönteme göre çok daha doğru sonuçlar verir.</p>
+
+      <h4>ABC — İki Aşamalı Yükleme</h4>
+      <pre>AŞAMA 1: Kaynak → Faaliyet
+  ┌─────────────────┬──────────────────┬───────────────┐
+  │ Faaliyet        │ Maliyet Havuzu   │ Faaliyet İtk. │
+  ├─────────────────┼──────────────────┼───────────────┤
+  │ Makine Kurma    │   960.000 TL     │ Kurma sayısı  │
+  │ Kalite Kontrol  │   480.000 TL     │ İnceleme say. │
+  │ Malzeme Taşıma  │   360.000 TL     │ Taşıma sayısı │
+  │ Ürün Tasarımı   │   600.000 TL     │ Tasarım saati │
+  └─────────────────┴──────────────────┴───────────────┘
+
+AŞAMA 2: Faaliyet → Ürün
+  Makine Kurma havuzu: 960.000 TL / 1.200 kurma = 800 TL/kurma
+
+  Ürün X: 400 kurma × 800 = 320.000 TL GÜG payı
+  Ürün Y:  80 kurma × 800 =  64.000 TL GÜG payı</pre>
+
+      <div class="example-block">
+        <div class="example-header">Geleneksel vs ABC — Kâr Karşılaştırması</div>
+        <div class="example-body">
+<pre>                    GELENEKSEL          ABC
+                  Ürün A   Ürün B   Ürün A   Ürün B
+Satış Fiyatı     250 TL   180 TL   250 TL   180 TL
+DIMM + Dİ        120 TL    80 TL   120 TL    80 TL
+GÜG Yükü          90 TL    65 TL    60 TL   110 TL  ← farklı!
+─────────────────────────────────────────────────
+Birim Kâr         40 TL    35 TL    70 TL   −10 TL
+
+YORUM: Geleneksel yöntem Ürün B'nin zarar ettirdiğini GİZLİYOR.
+       ABC ile Ürün B aslında zararlı — fiyat revizyonu veya
+       ürün portföyü kararı gerekebilir.</pre>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">💡</span>
+        <div><strong>Ne Zaman ABC?</strong> Ürün çeşitliliği yüksek, hacimler farklı, GÜG oranı %40'ın üzerinde, yüksek rekabet ortamı — bu koşulların 2-3'ü bir arada ise ABC fayda sağlar. Küçük, tek ürün işletmelerde geleneksel yöntem yeterlidir.</div>
+      </div>
+    </div>
+
+    <div id="m-bepanaliz" class="tab-panel">
+      <h3>Başabaş Noktası (BEP) ve Katkı Payı Analizi</h3>
+      <p style="margin-bottom:1.5rem;color:var(--txt3);font-size:.92rem">BEP analizi, kaç birim satışta kâr sıfırlanır sorusunu yanıtlar. Fiyatlama, kapasite ve bütçe kararlarının temel aracıdır.</p>
+
+      <h4>BEP Formülleri</h4>
+      <pre>KATKIPAYΙ (KP) = Satış Fiyatı − Değişken Birim Maliyet
+KP ORANI      = Katkı Payı / Satış Fiyatı
+
+BEP (birim) = Toplam Sabit Maliyet / Birim Katkı Payı
+BEP (TL)    = Toplam Sabit Maliyet / Katkı Payı Oranı
+
+HEDEF KÂR (birim) = (Sabit Maliyet + Hedef Kâr) / KP
+GÜVENLİK PAYI     = Gerçek Satış − BEP Satışı</pre>
+
+      <div class="example-block">
+        <div class="example-header">Kapsamlı BEP Örneği — Mobilya Üretimi (Berjer Koltuk)</div>
+        <div class="example-body">
+<pre>Satış Fiyatı              :  4.800 TL/adet
+Değişken Birim Maliyet    :  2.880 TL/adet
+  (Kumaş 1.200 + İşçilik 900 + Sünger 480 + Ambalaj 300)
+Birim Katkı Payı (KP)     :  1.920 TL/adet
+KP Oranı                  :  %40
+
+Aylık Sabit Maliyetler:
+  Fabrika kirası           :  120.000 TL
+  Sabit işçilik + idari   :   80.000 TL
+  Amortisman               :   36.000 TL
+  Diğer                   :   24.000 TL
+  TOPLAM SABİT MALİYET    :  260.000 TL
+
+─────────────────────────────────────────────────────
+BEP (birim) = 260.000 / 1.920 = 135,4 → 136 adet/ay
+BEP (TL)    = 260.000 / 0,40  = 650.000 TL/ay
+
+Ocak satışı 200 adet ise:
+  Toplam KP     = 200 × 1.920       = 384.000 TL
+  Sabit Maliyet =                    260.000 TL
+  NET KAR       =                    124.000 TL
+
+  Güvenlik Payı = 200 − 136 = 64 adet (%47 güvenlik marjı)
+
+"Fiyatı %10 düşürsek ne olur?" senaryosu:
+  Yeni SP = 4.320 TL | Yeni KP = 1.440 TL
+  Yeni BEP = 260.000 / 1.440 = 181 adet → %33 daha fazla satış gerekir!</pre>
+        </div>
+      </div>
+
+      <div class="callout callout-success">
+        <span class="callout-icon">✅</span>
+        <div><strong>Çok Ürünlü BEP:</strong> Birden fazla ürün satıyorsanız ortalama KP oranı kullanılır (ürünlerin satış karmasına göre ağırlıklı ortalama). Ürün karması değiştiğinde BEP noktası da değişir — bu senaryo analizini kritik kılar.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- MALİ TABLOLAR -->
+<section id="tablolar" class="page-section">
+  <div class="section-header">
+    <div class="section-label">Örnek Şirket — Anadolu Metal Sanayi A.Ş.</div>
+    <h2>Mali Tablolar</h2>
+    <div class="section-divider"></div>
+    <p>TFRS uyumlu örnek bilanço, gelir tablosu ve nakit akış tablosu — gerçekçi sayılar ve satır satır açıklamalarıyla.</p>
+  </div>
+  <div class="tabs-wrapper">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'t-bilanco')">Bilanço</button>
+      <button class="tab-btn" onclick="switchTab(this,'t-gelir')">Gelir Tablosu</button>
+      <button class="tab-btn" onclick="switchTab(this,'t-nakit')">Nakit Akış</button>
+      <button class="tab-btn" onclick="switchTab(this,'t-rehber')">Okuma Rehberi</button>
+    </div>
+
+    <div id="t-bilanco" class="tab-panel active">
+      <p style="font-size:.82rem;color:var(--txt3);margin-bottom:1rem">FİNANSAL DURUM TABLOSU | 31.12.2024 | Birim: TL</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Kalemler</th><th class="num">31.12.2024</th><th class="num">31.12.2023</th></tr></thead>
+          <tbody>
+            <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.8rem;letter-spacing:.05em">DÖNEN VARLIKLAR</td></tr>
+            <tr><td style="padding-left:1.5rem">Nakit ve Nakit Benzerleri</td><td class="num">4.820.000</td><td class="num">3.150.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Finansal Yatırımlar (KV)</td><td class="num">1.200.000</td><td class="num">800.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Ticari Alacaklar (Net)</td><td class="num">11.980.000</td><td class="num">9.560.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Stoklar (Net)</td><td class="num">8.470.000</td><td class="num">7.105.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Diğer Dönen Varlıklar</td><td class="num">860.000</td><td class="num">590.000</td></tr>
+            <tr style="font-weight:700"><td>TOPLAM DÖNEN VARLIKLAR</td><td class="num">27.330.000</td><td class="num">21.205.000</td></tr>
+            <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.8rem;letter-spacing:.05em">DURAN VARLIKLAR</td></tr>
+            <tr><td style="padding-left:1.5rem">Maddi Duran Varlıklar (Net)</td><td class="num">30.500.000</td><td class="num">26.700.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Kullanım Hakkı Varlıkları (TFRS 16)</td><td class="num">3.200.000</td><td class="num">2.800.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Ertelenmiş Vergi Varlığı (TMS 12)</td><td class="num">620.000</td><td class="num">480.000</td></tr>
+            <tr style="font-weight:700"><td>TOPLAM DURAN VARLIKLAR</td><td class="num">36.870.000</td><td class="num">31.930.000</td></tr>
+            <tr style="font-weight:700;background:var(--accent-light)"><td>TOPLAM VARLIKLAR</td><td class="num">64.200.000</td><td class="num">53.135.000</td></tr>
+            <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.8rem;letter-spacing:.05em">KISA VADELİ YÜKÜMLÜLÜKLER</td></tr>
+            <tr><td style="padding-left:1.5rem">Kısa Vadeli Finansal Borçlar</td><td class="num">5.800.000</td><td class="num">4.200.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Ticari Borçlar</td><td class="num">8.400.000</td><td class="num">6.750.000</td></tr>
+            <tr style="font-weight:700"><td>TOPLAM KV YÜKÜMLÜLÜKLER</td><td class="num">16.450.000</td><td class="num">12.790.000</td></tr>
+            <tr style="font-weight:700"><td>TOPLAM UV YÜKÜMLÜLÜKLER</td><td class="num">16.930.000</td><td class="num">14.730.000</td></tr>
+            <tr style="font-weight:700"><td>TOPLAM ÖZKAYNAKLAR</td><td class="num">30.620.000</td><td class="num">27.615.000</td></tr>
+            <tr style="font-weight:700;background:var(--accent-light)"><td>TOPLAM KAYNAKLAR</td><td class="num">64.200.000</td><td class="num">53.135.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="t-gelir" class="tab-panel">
+      <p style="font-size:.82rem;color:var(--txt3);margin-bottom:1rem">KAR VEYA ZARAR TABLOSU | 01.01–31.12.2024</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Kalemler</th><th class="num">2024</th><th class="num">2023</th></tr></thead>
+          <tbody>
+            <tr><td>Hasılat (Net)</td><td class="num">68.400.000</td><td class="num">52.800.000</td></tr>
+            <tr><td>Satışların Maliyeti (–)</td><td class="num">(47.200.000)</td><td class="num">(36.900.000)</td></tr>
+            <tr style="font-weight:700"><td>BRÜT KAR</td><td class="num">21.200.000</td><td class="num">15.900.000</td></tr>
+            <tr><td>Ar-Ge Giderleri (–)</td><td class="num">(1.840.000)</td><td class="num">(1.420.000)</td></tr>
+            <tr><td>Pazarlama Giderleri (–)</td><td class="num">(4.200.000)</td><td class="num">(3.100.000)</td></tr>
+            <tr><td>Genel Yönetim Giderleri (–)</td><td class="num">(3.600.000)</td><td class="num">(2.900.000)</td></tr>
+            <tr style="font-weight:700"><td>ESAS FAALİYET KARI (EBIT)</td><td class="num">12.040.000</td><td class="num">8.900.000</td></tr>
+            <tr><td>Finansman Gelirleri</td><td class="num">480.000</td><td class="num">310.000</td></tr>
+            <tr><td>Finansman Giderleri (–)</td><td class="num">(3.820.000)</td><td class="num">(2.900.000)</td></tr>
+            <tr style="font-weight:700"><td>VERGİ ÖNCESİ KAR</td><td class="num">8.700.000</td><td class="num">6.310.000</td></tr>
+            <tr><td>Dönem Vergi Gideri (–)</td><td class="num">(3.020.000)</td><td class="num">(1.890.000)</td></tr>
+            <tr style="font-weight:700;background:var(--green-light)"><td>DÖNEM NET KARI</td><td class="num" style="color:var(--green)">5.680.000</td><td class="num" style="color:var(--green)">4.420.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="t-nakit" class="tab-panel">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Kalemler</th><th class="num">2024</th><th class="num">2023</th></tr></thead>
+          <tbody>
+            <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.8rem">A. İŞLETME FAALİYETLERİ</td></tr>
+            <tr><td style="padding-left:1.5rem">Dönem Net Kârı</td><td class="num">5.680.000</td><td class="num">4.420.000</td></tr>
+            <tr><td style="padding-left:1.5rem">Amortisman ve İtfa (+)</td><td class="num">3.820.000</td><td class="num">3.100.000</td></tr>
+            <tr style="font-weight:700"><td>İşletme Faaliyetleri Net Nakit</td><td class="num">3.480.000</td><td class="num">3.235.000</td></tr>
+            <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.8rem">B. YATIRIM FAALİYETLERİ</td></tr>
+            <tr style="font-weight:700"><td>Yatırım Faaliyetleri Net Nakit</td><td class="num" style="color:var(--red)">(7.720.000)</td><td class="num" style="color:var(--red)">(6.020.000)</td></tr>
+            <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.8rem">C. FİNANSMAN FAALİYETLERİ</td></tr>
+            <tr style="font-weight:700"><td>Finansman Faaliyetleri Net Nakit</td><td class="num">1.590.000</td><td class="num">1.505.000</td></tr>
+            <tr style="font-weight:700;background:var(--accent-light)"><td>DÖNEM SONU NAKİT BAKİYESİ</td><td class="num">4.820.000</td><td class="num">3.150.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="t-rehber" class="tab-panel">
+      <div class="card-grid">
+        <div class="card"><h4 style="margin-bottom:.5rem">📸 Bilanço</h4><p style="font-size:.88rem;color:var(--txt2)">Anlık fotoğraf. "Neye sahibiz, kime borçluyuz?" sorusunu yanıtlar.</p></div>
+        <div class="card"><h4 style="margin-bottom:.5rem">🎬 Gelir Tablosu</h4><p style="font-size:.88rem;color:var(--txt2)">Dönem filmi. "Nasıl performans gösterdik?" sorusunu yanıtlar.</p></div>
+        <div class="card"><h4 style="margin-bottom:.5rem">💵 Nakit Akış</h4><p style="font-size:.88rem;color:var(--txt2)">Gerçek para. "Fiilen ne kadar nakit ürettik?" sorusunu yanıtlar.</p></div>
+      </div>
+      <div class="callout callout-warn" style="margin-top:1rem">
+        <span class="callout-icon">🔑</span>
+        <div><strong>Altın Kural: Kâr ≠ Nakit.</strong> Tahakkuk esaslı muhasebede kârlı görünen bir şirket nakit sıkıntısı yaşayabilir. İşletme nakit akışı ile net kâr arasındaki fark büyüdükçe, kâr kalitesi sorgulanmalıdır.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANALİZ -->
+<section id="analiz" class="page-section">
+  <div class="section-header">
+    <div class="section-label">İnteraktif Araç</div>
+    <h2>Mali Oran Analizi</h2>
+    <div class="section-divider"></div>
+    <p>Kendi şirketinizin rakamlarını girin, likidite, kârlılık, kaldıraç ve devir hızı oranlarını anında hesaplayın ve yorumlayın.</p>
+  </div>
+  <div class="calc-section">
+    <!-- Likidite -->
+    <div class="calc-card">
+      <h4>💧 Likidite</h4>
+      <div class="field"><label>Dönen Varlıklar (TL)</label><input id="lDV" type="number" placeholder="27.330.000"></div>
+      <div class="field"><label>Stoklar (TL)</label><input id="lStok" type="number" placeholder="8.470.000"></div>
+      <div class="field"><label>KV Yükümlülükler (TL)</label><input id="lKV" type="number" placeholder="16.450.000"></div>
+      <button class="calc-btn" onclick="calcLikidite()">Hesapla →</button>
+      <div class="calc-result" id="lResult" style="display:none"></div>
+    </div>
+    <!-- Kârlılık -->
+    <div class="calc-card">
+      <h4>📈 Kârlılık</h4>
+      <div class="field"><label>Net Kâr (TL)</label><input id="kNK" type="number" placeholder="5.680.000"></div>
+      <div class="field"><label>Net Hasılat (TL)</label><input id="kNH" type="number" placeholder="68.400.000"></div>
+      <div class="field"><label>Toplam Varlıklar (TL)</label><input id="kTV" type="number" placeholder="64.200.000"></div>
+      <button class="calc-btn" onclick="calcKarlılık()">Hesapla →</button>
+      <div class="calc-result" id="kResult" style="display:none"></div>
+    </div>
+    <!-- Kaldıraç -->
+    <div class="calc-card">
+      <h4>⚖️ Kaldıraç</h4>
+      <div class="field"><label>Toplam Borç (TL)</label><input id="kaBorç" type="number" placeholder="33.380.000"></div>
+      <div class="field"><label>Özkaynaklar (TL)</label><input id="kaOK" type="number" placeholder="30.620.000"></div>
+      <div class="field"><label>EBIT (TL)</label><input id="kaEBIT" type="number" placeholder="12.040.000"></div>
+      <div class="field"><label>Finansman Giderleri (TL)</label><input id="kaFG" type="number" placeholder="3.820.000"></div>
+      <button class="calc-btn" onclick="calcKaldiraç()">Hesapla →</button>
+      <div class="calc-result" id="kaResult" style="display:none"></div>
+    </div>
+    <!-- Devir Hızı -->
+    <div class="calc-card">
+      <h4>🔄 Devir Hızı</h4>
+      <div class="field"><label>Net Satışlar (TL)</label><input id="dNS" type="number" placeholder="68.400.000"></div>
+      <div class="field"><label>Ort. Ticari Alacaklar (TL)</label><input id="dTA" type="number" placeholder="10.770.000"></div>
+      <div class="field"><label>Satılan Malın Maliyeti (TL)</label><input id="dSMM" type="number" placeholder="47.200.000"></div>
+      <div class="field"><label>Ort. Stoklar (TL)</label><input id="dST" type="number" placeholder="7.787.500"></div>
+      <button class="calc-btn" onclick="calcDevir()">Hesapla →</button>
+      <div class="calc-result" id="dResult" style="display:none"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VERGİ TAKVİMİ -->
+<section id="takvim" class="page-section">
+  <div class="section-header">
+    <div class="section-label">GİB Resmi Takvimi — 2026</div>
+    <h2>Vergi Takvimi &amp; Oranlar</h2>
+    <div class="section-divider"></div>
+    <p>Güncel beyanname ve ödeme tarihleri, KDV oranları, kurumlar vergisi ve gecikme zammı — GİB resmi takvimine göre.</p>
+  </div>
+
+  <div class="callout callout-info" style="margin-bottom:1.5rem">
+    <span class="callout-icon">ℹ️</span>
+    <div><strong>2024'ten itibaren geçerli önemli değişiklik:</strong> KDV beyan tarihi ayın <strong>25'i</strong>, ödeme tarihi <strong>25'i</strong> (eski: beyan 24, ödeme 26). Muhtasar+PHS beyan ve ödeme tarihi ayın <strong>26'sı</strong> olarak devam etmektedir. Kaynak: GİB Vergi Takvimi 2026.</div>
+  </div>
+
+  <div class="months-grid">
+
+    <div class="month-card"><h4>Ocak 2026 <span class="month-star">★</span></h4>
+      <div class="month-item"><span class="date-badge">2 Oca</span>MTV 1. taksit ödeme son gün (1 Oca–2 Şub)</div>
+      <div class="month-item"><span class="date-badge">17 Şub</span>2025 IV. Geçici Vergi (Eki–Ara) beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">25 Oca</span>Ara/25 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Oca</span>Ara/25 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Şubat 2026</h4>
+      <div class="month-item"><span class="date-badge">2 Şub</span>MTV 1. taksit son gün</div>
+      <div class="month-item"><span class="date-badge">17 Şub</span>2025 IV. Dönem Geçici Vergi beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">25 Şub</span>Oca/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Şub</span>Oca/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Mart 2026 <span class="month-star">★</span></h4>
+      <div class="month-item"><span class="date-badge">1–31 Mar</span>2025 Yıllık Gelir Vergisi beyan (son: 31 Mart)</div>
+      <div class="month-item"><span class="date-badge">31 Mar</span>GV 1. taksit ödeme (Mart içinde)</div>
+      <div class="month-item"><span class="date-badge">25 Mar</span>Şub/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Mar</span>Şub/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Nisan 2026 <span class="month-star">★</span></h4>
+      <div class="month-item"><span class="date-badge">1–30 Nis</span>2025 Yıllık Kurumlar Vergisi beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">25 Nis</span>Mar/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Nis</span>Mar/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Mayıs 2026</h4>
+      <div class="month-item"><span class="date-badge">17 May</span>2026 I. Dönem Geçici Vergi (Oca–Mar) beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">25 May</span>Nis/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 May</span>Nis/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Haziran 2026</h4>
+      <div class="month-item"><span class="date-badge">1 Haz</span>Emlak Vergisi 1. taksit başlangıcı</div>
+      <div class="month-item"><span class="date-badge">25 Haz</span>May/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Haz</span>May/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Temmuz 2026 <span class="month-star">★</span></h4>
+      <div class="month-item"><span class="date-badge">1–31 Tem</span>GV 2. taksit ödeme + MTV 2. taksit</div>
+      <div class="month-item"><span class="date-badge">17 Ağu</span>2026 II. Dönem Geçici Vergi (Nis–Haz) beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">25 Tem</span>Haz/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Tem</span>Haz/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Ağustos 2026</h4>
+      <div class="month-item"><span class="date-badge">17 Ağu</span>2026 II. Dönem Geçici Vergi beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">25 Ağu</span>Tem/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Ağu</span>Tem/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Kasım 2026 <span class="month-star">★</span></h4>
+      <div class="month-item"><span class="date-badge">17 Kas</span>2026 III. Dönem Geçici Vergi (Tem–Eyl) beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">30 Kas</span>Emlak Vergisi 2. taksit son gün</div>
+      <div class="month-item"><span class="date-badge">25 Kas</span>Eki/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Kas</span>Eki/26 Muhtasar+PHS beyan+ödeme</div>
+    </div>
+
+    <div class="month-card"><h4>Aralık 2026</h4>
+      <div class="month-item"><span class="date-badge">25 Ara</span>Kas/26 dönemi KDV beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">26 Ara</span>Kas/26 Muhtasar+PHS beyan+ödeme</div>
+      <div class="month-item"><span class="date-badge">31 Ara</span>Yıl sonu envanter, kapanış kayıtları</div>
+    </div>
+
+  </div>
+
+  <div class="callout callout-warn" style="margin:1.2rem 0">
+    <span class="callout-icon">📌</span>
+    <div><strong>Geçici Vergi Dönemleri 2026:</strong> I. Dönem Oca–Mar → beyan/ödeme 17 Mayıs · II. Dönem Nis–Haz → 17 Ağustos · III. Dönem Tem–Eyl → 17 Kasım · IV. Dönem Eki–Ara → 17 Şubat 2027 (2025 IV. dönemi zaten 17 Şubat 2026'da ödendi).</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-top:1.5rem">
+    <div>
+      <h3 style="margin-bottom:.75rem;font-size:1rem">KDV Oranları 2026</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Mal / Hizmet</th><th class="num">Oran</th></tr></thead>
+          <tbody>
+            <tr><td>Temel gıda (ekmek, süt, un)</td><td class="num">%1</td></tr>
+            <tr><td>Taze meyve ve sebze</td><td class="num">%1</td></tr>
+            <tr><td>Konut (net ≤ 150 m²)</td><td class="num">%1</td></tr>
+            <tr><td>Tekstil, giyim, ayakkabı</td><td class="num">%10</td></tr>
+            <tr><td>Restoran / catering hizmetleri</td><td class="num">%10</td></tr>
+            <tr><td>Konut (net &gt; 150 m²)</td><td class="num">%20</td></tr>
+            <tr><td>Genel oran (diğer tüm mal/hizmet)</td><td class="num">%20</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:.75rem;font-size:1rem">Kurumlar Vergisi &amp; Diğer Oranlar 2026</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Konu</th><th class="num">Oran</th></tr></thead>
+          <tbody>
+            <tr><td>Genel Kurumlar Vergisi</td><td class="num">%25</td></tr>
+            <tr><td>Finans Sektörü KV</td><td class="num">%30</td></tr>
+            <tr><td>Stopaj — Temettü (tam mükellef)</td><td class="num">%15</td></tr>
+            <tr><td>Stopaj — Kira (işyeri)</td><td class="num">%20</td></tr>
+            <tr><td>Stopaj — Serbest meslek</td><td class="num">%20</td></tr>
+            <tr><td>Gecikme Zammı (aylık)</td><td class="num">%4,5</td></tr>
+            <tr><td>Damga Vergisi (bordro)</td><td class="num">%0,759</td></tr>
+            <tr><td>GV Konut Kira İstisnası</td><td class="num">47.000 TL</td></tr>
+            <tr><td>GV 2. dilim sınırı (2025 gelirleri)</td><td class="num">330.000 TL</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ASGARİ ÜCRET -->
+<section id="asgari" class="page-section">
+  <div class="section-header">
+    <div class="section-label">2026 Güncel Rakamlar</div>
+    <h2>Asgari Ücret &amp; İşveren Maliyeti</h2>
+    <p>2026 yılı brüt/net hesabı, işveren maliyeti, prim oranları ve yevmiye kayıtları.</p>
+  </div>
+  <div class="card-grid" style="margin-bottom:1.5rem">
+    <div class="stat-card"><div class="label">Brüt Asgari Ücret</div><div class="value">33.030 ₺</div><div class="sub">01.01.2026 itibarıyla</div></div>
+    <div class="stat-card"><div class="label">Net Asgari Ücret</div><div class="value">28.075,50 ₺</div><div class="sub">GV + DV tam istisna</div></div>
+    <div class="stat-card"><div class="label">İşveren Toplam Maliyet</div><div class="value">40.214 ₺</div><div class="sub">2 puan teşvik dahil (imalat dışı)</div></div>
+    <div class="stat-card"><div class="label">Kıdem Tazminatı Tavanı</div><div class="value">64.948,77 ₺</div><div class="sub">01.01–30.06.2026 dönemi</div></div>
+  </div>
+  <div class="tabs-wrapper">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'au-bordro')">Bordro Hesabı</button>
+      <button class="tab-btn" onclick="switchTab(this,'au-prim')">Prim Oranları</button>
+      <button class="tab-btn" onclick="switchTab(this,'au-kayit')">Yevmiye Kayıtları</button>
+      <button class="tab-btn" onclick="switchTab(this,'au-gv')">GV Dilimleri</button>
+    </div>
+    <div id="au-bordro" class="tab-panel active">
+      <pre>2026 ASGARİ ÜCRET BORDROSU — Adım Adım
+═══════════════════════════════════════════════════════
+BRÜT ASGARİ ÜCRET                     33.030,00 TL
+───────────────────────────────────────────────────
+İŞÇİ KESİNTİLERİ:
+  SGK Primi (İşçi)     %14,0      –  4.624,20 TL
+  İşsizlik Sigortası    %1,0      –    330,30 TL
+───────────────────────────────────────────────────
+  GV + DV Matrahı                    28.075,50 TL
+  GV İstisnası (7349 s.K.)           4.211,33 TL → ÖDENECEK GV: 0,00 TL
+  DV İstisnası (%0,759)                250,70 TL → ÖDENECEK DV: 0,00 TL
+───────────────────────────────────────────────────
+  TOPLAM İŞÇİ KESİNTİSİ             –  4.954,50 TL
+═══════════════════════════════════════════════════
+NET ÖDENECEK ÜCRET                    28.075,50 TL
+═══════════════════════════════════════════════════
+
+İŞVEREN MALİYETİ (İmalat Dışı — 2 Puan Teşvik):
+  Brüt Ücret                         33.030,00 TL
+  İşveren SGK Primi  %19,75      +   6.523,43 TL
+  İşveren İşsizlik    %2,0       +     660,60 TL
+  Asgari Ücret Desteği           –    1.270,00 TL
+═══════════════════════════════════════════════════
+TOPLAM İŞVEREN MALİYETİ              38.944,03 TL
+
+İŞVEREN MALİYETİ (İmalat — 5 Puan Teşvik):
+  Brüt Ücret                         33.030,00 TL
+  İşveren SGK Primi  %16,75      +   5.532,53 TL
+  İşveren İşsizlik    %2,0       +     660,60 TL
+  Asgari Ücret Desteği           –    1.270,00 TL
+═══════════════════════════════════════════════════
+TOPLAM İŞVEREN MALİYETİ              37.953,13 TL
+
+TEŞVİKSİZ İŞVEREN MALİYETİ (Tüm Sektörler):
+  İşveren SGK Primi  %21,75      +   7.184,03 TL
+  İşveren İşsizlik    %2,0       +     660,60 TL
+═══════════════════════════════════════════════════
+TOPLAM İŞVEREN MALİYETİ              40.874,63 TL</pre>
+    </div>
+    <div id="au-prim" class="tab-panel">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Prim Türü</th><th class="num">İşçi</th><th class="num">İşveren</th><th class="num">Toplam</th></tr></thead>
+          <tbody>
+            <tr><td>Uzun Vadeli Sig. (M/Y/Ö)</td><td class="num">%9,0</td><td class="num">%11,0</td><td class="num">%20,0</td></tr>
+            <tr><td>Kısa Vadeli Sig. Kolları</td><td class="num">—</td><td class="num">%2,25</td><td class="num">%2,25</td></tr>
+            <tr><td>Genel Sağlık Sigortası</td><td class="num">%5,0</td><td class="num">%7,5</td><td class="num">%12,5</td></tr>
+            <tr style="font-weight:700"><td>SGK Toplam</td><td class="num">%14,0</td><td class="num">%20,75</td><td class="num">%34,75</td></tr>
+            <tr><td>İşsizlik Sigortası</td><td class="num">%1,0</td><td class="num">%2,0</td><td class="num">%3,0</td></tr>
+            <tr style="font-weight:700;background:var(--accent-light)"><td>GENEL TOPLAM</td><td class="num">%15,0</td><td class="num">%22,75</td><td class="num">%37,75</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-info" style="margin-top:1rem">
+        <span class="callout-icon">⚠️</span>
+        <div><strong>2026 Değişikliği:</strong> 7566 sayılı Kanun ile malullük, yaşlılık ve ölüm sigortası işveren hissesi %11'den <strong>%11</strong>'e sabit tutulurken, kısa vadeli sigorta kolları oranı %2'den <strong>%2,25</strong>'e yükseltilmiştir. İmalat dışı sektörlerde 5 puan teşvik 2 puana indirilmiştir.</div>
+      </div>
+    </div>
+    <div id="au-kayit" class="tab-panel">
+      <pre>BORDRO TAHAKKUKU (Asgari Ücret — 2026):
+  770 Genel Yönetim Giderleri    39.214,03
+    360 SGK Primleri Karşılığı           11.147,63
+    361 Ödenecek Vergi ve Fonlar              0,00
+    335 Personele Borçlar                28.075,50
+    381 Gider Tahakkukları (DV)            250,70
+
+MAAŞ ÖDEMESİ:
+  335 Personele Borçlar          28.075,50
+    102 Bankalar                          28.075,50
+
+SGK ÖDEMESİ (İşçi + İşveren payı):
+  360 SGK Primleri Karşılığı     11.147,63
+    102 Bankalar                          11.147,63
+
+NOT: İşveren SGK payı 6.523,43 TL (imalat dışı, 2 puan teşvikli)
+     İşçi SGK + İşsizlik = 4.954,50 TL</pre>
+    </div>
+    <div id="au-gv" class="tab-panel">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Matrah Dilimi (TL)</th><th class="num">Oran</th></tr></thead>
+          <tbody>
+            <tr><td>0 – 158.000</td><td class="num">%15</td></tr>
+            <tr><td>158.001 – 330.000</td><td class="num">%20</td></tr>
+            <tr><td>330.001 – 800.000</td><td class="num">%27</td></tr>
+            <tr><td>800.001 – 4.300.000</td><td class="num">%35</td></tr>
+            <tr><td>4.300.001 ve üzeri</td><td class="num">%40</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ERP -->
+<section id="erp" class="page-section">
+  <div class="section-header">
+    <div class="section-label">Yazılım Rehberi</div>
+    <h2>ERP & Muhasebe Yazılımları</h2>
+    <div class="section-divider"></div>
+    <p>Türkiye'de kullanılan başlıca muhasebe ve ERP yazılımları — modüller, özellikler, karşılaştırma ve Luca Mali Müşavir detaylı rehberi.</p>
+  </div>
+
+  <div class="tabs-wrapper">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'erp-karsilastir')">Karşılaştırma</button>
+      <button class="tab-btn" onclick="switchTab(this,'erp-sap')">SAP S/4HANA</button>
+      <button class="tab-btn" onclick="switchTab(this,'erp-logo')">Logo Tiger</button>
+      <button class="tab-btn" onclick="switchTab(this,'erp-mikro')">Mikro / Netsis</button>
+      <button class="tab-btn" onclick="switchTab(this,'erp-luca')">🟦 Luca — Genel</button>
+      <button class="tab-btn" onclick="switchTab(this,'erp-luca-ik')">🟦 Luca — İK & Bordro</button>
+      <button class="tab-btn" onclick="switchTab(this,'erp-edont')">e-Dönüşüm</button>
+    </div>
+
+    <!-- ── KARŞILAŞTIRMA ── -->
+    <div id="erp-karsilastir" class="tab-panel active">
+      <h3>Yazılım Karşılaştırma Tablosu</h3>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1.25rem">Türkiye'de yaygın kullanılan muhasebe ve ERP yazılımlarının temel özellikleri ve hedef kitle karşılaştırması.</p>
+
+      <div class="table-wrap" style="margin-bottom:1.5rem">
+        <table>
+          <thead>
+            <tr>
+              <th>Yazılım</th>
+              <th>Hedef Kitle</th>
+              <th>Fiyat Segmenti</th>
+              <th>e-Dönüşüm</th>
+              <th>Bulut</th>
+              <th>İK/Bordro</th>
+              <th>Öne Çıkan Özellik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Luca</strong></td>
+              <td>Mali müşavirler, KOBİ</td>
+              <td style="color:var(--green);font-weight:600">Uygun</td>
+              <td style="color:var(--green)">✓ Tam</td>
+              <td style="color:var(--green)">✓</td>
+              <td style="color:var(--green)">✓ Kapsamlı</td>
+              <td>Mali müşavir odaklı, çoklu firma</td>
+            </tr>
+            <tr>
+              <td><strong>Logo Tiger 3</strong></td>
+              <td>Orta/büyük işletme</td>
+              <td style="color:var(--amber);font-weight:600">Orta-Yüksek</td>
+              <td style="color:var(--green)">✓ Tam</td>
+              <td style="color:var(--green)">✓</td>
+              <td style="color:var(--green)">✓</td>
+              <td>Üretim + muhasebe entegrasyonu</td>
+            </tr>
+            <tr>
+              <td><strong>Mikro ERP</strong></td>
+              <td>KOBİ, küçük işletme</td>
+              <td style="color:var(--green);font-weight:600">Uygun</td>
+              <td style="color:var(--green)">✓ Tam</td>
+              <td style="color:var(--amber)">Kısmi</td>
+              <td style="color:var(--green)">✓</td>
+              <td>Kolay kullanım, hızlı kurulum</td>
+            </tr>
+            <tr>
+              <td><strong>Netsis ERP</strong></td>
+              <td>İmalat, orta ölçek</td>
+              <td style="color:var(--amber);font-weight:600">Orta</td>
+              <td style="color:var(--green)">✓ Tam</td>
+              <td style="color:var(--amber)">Kısmi</td>
+              <td style="color:var(--green)">✓</td>
+              <td>Üretim planlama + maliyet takibi</td>
+            </tr>
+            <tr>
+              <td><strong>SAP S/4HANA</strong></td>
+              <td>Büyük kurumsal</td>
+              <td style="color:var(--red);font-weight:600">Çok Yüksek</td>
+              <td style="color:var(--green)">✓ Tam</td>
+              <td style="color:var(--green)">✓ Native</td>
+              <td style="color:var(--green)">✓ SAP HCM</td>
+              <td>Global standart, IFRS paralel defter</td>
+            </tr>
+            <tr>
+              <td><strong>Microsoft D365</strong></td>
+              <td>Kurumsal, çok şubeli</td>
+              <td style="color:var(--red);font-weight:600">Yüksek</td>
+              <td style="color:var(--green)">✓ Tam</td>
+              <td style="color:var(--green)">✓ Azure</td>
+              <td style="color:var(--green)">✓</td>
+              <td>Power BI, AI cashflow tahmini</td>
+            </tr>
+            <tr>
+              <td><strong>Zirve / Uyumsoft</strong></td>
+              <td>Mali müşavir, KOBİ</td>
+              <td style="color:var(--green);font-weight:600">Uygun</td>
+              <td style="color:var(--green)">✓ Tam</td>
+              <td style="color:var(--amber)">Kısmi</td>
+              <td style="color:var(--green)">✓</td>
+              <td>Hukuk büroları + müşavirlik odaklı</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Hangi Yazılımı Seçmeli?</h4>
+      <div class="card-grid">
+        <div class="card">
+          <strong style="color:var(--accent)">Mali Müşavirler & Muhasebe Büroları</strong>
+          <p style="font-size:.84rem;margin-top:.5rem;color:var(--txt3)">
+            <strong>Luca</strong> veya <strong>Uyumsoft</strong> öncelikli tercih. Çoklu firma yönetimi, e-beyanname entegrasyonu ve mesleki yeterlilik kritik. Luca'nın TÜRMOB altyapısı özellikle güçlü.
+          </p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--green)">KOBİ & Küçük İşletme</strong>
+          <p style="font-size:.84rem;margin-top:.5rem;color:var(--txt3)">
+            <strong>Mikro ERP</strong> veya <strong>Logo GO</strong>. Düşük maliyet, hızlı kurulum, temel muhasebe + e-dönüşüm yeterli. Bordro ve stok modülleri genellikle dahil.
+          </p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--amber)">Orta Ölçek & İmalat</strong>
+          <p style="font-size:.84rem;margin-top:.5rem;color:var(--txt3)">
+            <strong>Logo Tiger 3</strong> veya <strong>Netsis ERP</strong>. Üretim, stok, sipariş ve muhasebe entegrasyonu şart. TFRS uyumu, çok şube ve konsolidasyon desteği.
+          </p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--red)">Büyük Kurumsal & Global</strong>
+          <p style="font-size:.84rem;margin-top:.5rem;color:var(--txt3)">
+            <strong>SAP S/4HANA</strong> veya <strong>Microsoft D365</strong>. IFRS paralel defter, gerçek zamanlı konsolidasyon, çok döviz ve global vergi uyumu zorunlu.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SAP ── -->
+    <div id="erp-sap" class="tab-panel">
+      <h3>SAP S/4HANA — Kurumsal ERP</h3>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1.25rem">SAP S/4HANA, dünyanın en yaygın kurumsal kaynak planlama sistemidir. Türkiye'de büyük ölçekli şirketler, banka ve holding yapıları tercih eder.</p>
+
+      <h4>Temel Finans Modülleri</h4>
+      <div class="erp-grid" style="margin-bottom:1.5rem">
+        <div class="erp-card">
+          <h4>FI — Financial Accounting</h4>
+          <div class="sub">Finansal Muhasebe</div>
+          <span class="erp-badge" style="background:var(--accent3);color:var(--accent)">Zorunlu Modül</span>
+          <ul class="erp-list">
+            <li>Genel muhasebe (GL) — tekdüzen hesap planı</li>
+            <li>Borçlu (AR) ve alacaklı (AP) muhasebesi</li>
+            <li>Varlık muhasebesi (AA) — amortisman otomasyonu</li>
+            <li>Banka muhasebesi ve nakit yönetimi</li>
+            <li>TFRS / IFRS paralel muhasebe defteri (FI-SL)</li>
+            <li>Konsolidasyon — EC-CS modülü</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>CO — Controlling</h4>
+          <div class="sub">Yönetim Muhasebesi</div>
+          <span class="erp-badge" style="background:var(--green-light);color:var(--green)">Analitik Güç</span>
+          <ul class="erp-list">
+            <li>Maliyet merkezi muhasebesi (CCA)</li>
+            <li>Sipariş bazlı maliyetleme (CO-OPA)</li>
+            <li>Kâr merkezi muhasebesi (PCA)</li>
+            <li>Ürün maliyetleme (CO-PC) — standart maliyet</li>
+            <li>Kârlılık analizi (CO-PA) — segment bazlı</li>
+            <li>Bütçe ve planlama entegrasyonu</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>MM & SD Entegrasyonu</h4>
+          <div class="sub">Satın Alma & Satış</div>
+          <span class="erp-badge" style="background:var(--amber-light);color:var(--amber)">Entegre Akış</span>
+          <ul class="erp-list">
+            <li>Otomatik muhasebe defterleri (OBYC)</li>
+            <li>Mal hareketi → otomatik yevmiye</li>
+            <li>Fatura doğrulama (LIV) — 3 yönlü eşleştirme</li>
+            <li>Satış faturası → FI alacak kaydı otomatik</li>
+            <li>Stok değerleme — FIFO/Hareketli ortalama</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Türkiye Yerelleştirmesi (TR Lokalizasyonu)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Özellik</th><th>SAP Çözümü</th><th>Durum</th></tr></thead>
+          <tbody>
+            <tr><td>e-Fatura (UBL-TR)</td><td>SAP Document Compliance / GIB entegrasyon</td><td style="color:var(--green)">✓ Mevcut</td></tr>
+            <tr><td>e-Defter (XBRL)</td><td>SAP Legal Reporting for TR</td><td style="color:var(--green)">✓ Mevcut</td></tr>
+            <tr><td>KDV Beyannamesi</td><td>VAT Report — otomatik oluşturma</td><td style="color:var(--green)">✓ Mevcut</td></tr>
+            <tr><td>BA/BS Formları</td><td>Vendor/Customer Deklarasyon Raporu</td><td style="color:var(--green)">✓ Mevcut</td></tr>
+            <tr><td>Enflasyon Muhasebesi</td><td>FI-AA yeniden değerleme + TMS 29</td><td style="color:var(--amber)">Yapılandırma gerekli</td></tr>
+            <tr><td>SGK e-Bildirge</td><td>Payroll TR + HR entegrasyonu</td><td style="color:var(--green)">✓ Mevcut</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-warn" style="margin-top:1rem">
+        <span class="callout-icon">💡</span>
+        <div><strong>SAP Danışmanlık Maliyeti:</strong> S/4HANA lisans ve uygulama maliyetleri yüksektir. Orta ölçekli şirketler için SAP Business One veya Business ByDesign alternatif olabilir. Türkiye'de SAP Business One yerelleştirmesi güçlü ortak ağıyla desteklenmektedir.</div>
+      </div>
+    </div>
+
+    <!-- ── LOGO ── -->
+    <div id="erp-logo" class="tab-panel">
+      <h3>Logo Tiger 3 — Yerli ERP Lider</h3>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1.25rem">Logo Yazılım, Türkiye'nin en büyük yerli ERP şirketidir. Tiger 3 orta ve büyük ölçekli işletmelere, GO serisi ise KOBİ'lere yöneliktir. BİST kotasyonludur.</p>
+
+      <h4>Modül Yapısı</h4>
+      <div class="erp-grid" style="margin-bottom:1.5rem">
+        <div class="erp-card">
+          <h4>Muhasebe & Finans</h4>
+          <div class="sub">Logo Finans Modülü</div>
+          <span class="erp-badge" style="background:var(--accent3);color:var(--accent)">Çekirdek</span>
+          <ul class="erp-list">
+            <li>THP ve MSUGT uyumlu genel muhasebe</li>
+            <li>Çok dövizli hesap yönetimi</li>
+            <li>Bütçe modülü — planlama ve kontrol</li>
+            <li>Konsolidasyon — holding yapıları</li>
+            <li>Maliyet merkezi ve kâr merkezi</li>
+            <li>TFRS paralel muhasebe desteği</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>e-Dönüşüm Paketi</h4>
+          <div class="sub">GİB Entegrasyonu</div>
+          <span class="erp-badge" style="background:var(--green-light);color:var(--green)">Tam Entegre</span>
+          <ul class="erp-list">
+            <li>e-Fatura — UBL-TR 2.1 tam uyumlu</li>
+            <li>e-Arşiv Fatura — internet satışları dahil</li>
+            <li>e-İrsaliye — lojistik entegrasyonu</li>
+            <li>e-Defter — yevmiye ve büyük defter</li>
+            <li>e-Mutabakat, e-Smm, e-Mm</li>
+            <li>e-Bilanço ve e-Gelir Tablosu (XBRL)</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>İnsan Kaynakları</h4>
+          <div class="sub">Logo İK Modülü</div>
+          <span class="erp-badge" style="background:var(--amber-light);color:var(--amber)">Entegre</span>
+          <ul class="erp-list">
+            <li>Personel özlük yönetimi</li>
+            <li>Puantaj ve devam takibi</li>
+            <li>Bordro hesaplama ve tahakkuku</li>
+            <li>SGK e-Bildirge otomatik oluşturma</li>
+            <li>Muhtasar+PHS beyanname entegrasyonu</li>
+            <li>Kıdem ve ihbar tazminatı hesabı</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Logo GO — KOBİ Çözümü</h4>
+      <div class="callout callout-info">
+        <span class="callout-icon">📦</span>
+        <div>
+          <strong>Logo GO</strong>, küçük ve orta ölçekli işletmeler için tasarlanmıştır.
+          Temel muhasebe, stok, cari hesap ve e-dönüşüm modülleri birlikte gelir.
+          Kurulum hızlı, lisans maliyeti düşüktür. Logo GO'dan Tiger 3'e veri aktarımı sorunsuz yapılabilir — büyüyen işletmeler için ideal geçiş yolu sunar.
+          <br><br>
+          <strong>Fiyatlandırma:</strong> Go! Muhasebe ~₺500/ay'dan başlar (2026 tahmini). Tiger 3 lisansı proje bazlıdır.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MİKRO / NETSİS ── -->
+    <div id="erp-mikro" class="tab-panel">
+      <h3>Mikro ERP & Netsis — KOBİ ve İmalat Çözümleri</h3>
+
+      <h4>Mikro ERP</h4>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1rem">Mikro, Türkiye'de 100.000'den fazla firmada kullanılan KOBİ odaklı muhasebe yazılımıdır. Düşük fiyatı, kolay arayüzü ve GİB entegrasyonuyla öne çıkar.</p>
+      <div class="erp-grid" style="margin-bottom:1.5rem">
+        <div class="erp-card">
+          <h4>Mikro Muhasebe Modülleri</h4>
+          <div class="sub">Temel Paket</div>
+          <span class="erp-badge" style="background:var(--green-light);color:var(--green)">KOBİ Dostu</span>
+          <ul class="erp-list">
+            <li>Genel muhasebe — THP tam uyumlu</li>
+            <li>Cari hesap (müşteri / tedarikçi)</li>
+            <li>Stok yönetimi — FIFO/AOM</li>
+            <li>Fatura, irsaliye, sipariş modülü</li>
+            <li>Banka ve kasa takibi</li>
+            <li>KDV ve muhtasar beyanname</li>
+            <li>Çek-senet yönetimi</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>Mikro e-Dönüşüm</h4>
+          <div class="sub">GİB Entegrasyonu</div>
+          <span class="erp-badge" style="background:var(--accent3);color:var(--accent)">Tam Entegre</span>
+          <ul class="erp-list">
+            <li>e-Fatura / e-Arşiv gönderim-alma</li>
+            <li>e-İrsaliye entegrasyonu</li>
+            <li>e-Defter imzalama ve gönderme</li>
+            <li>GİB portal otomasyonu</li>
+            <li>BA / BS form oluşturma</li>
+            <li>e-Bilanço (XBRL) çıktısı</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>Mikro İK & Bordro</h4>
+          <div class="sub">İnsan Kaynakları</div>
+          <span class="erp-badge" style="background:var(--amber-light);color:var(--amber)">Modüler</span>
+          <ul class="erp-list">
+            <li>Personel özlük ve sözleşme</li>
+            <li>Puantaj girişi ve devam takibi</li>
+            <li>Bordro hesaplama (2026 güncel)</li>
+            <li>SGK e-Bildirge entegrasyonu</li>
+            <li>Kıdem tazminatı karşılık hesabı</li>
+            <li>İzin takibi ve yönetimi</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Netsis ERP — İmalat Odaklı</h4>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1rem">Netsis, özellikle imalat ve üretim sektöründe güçlü bir ERP çözümüdür. Norm Yazılım bünyesindedir.</p>
+      <div class="erp-grid">
+        <div class="erp-card">
+          <h4>Netsis Üretim Modülü</h4>
+          <div class="sub">Manufacturing</div>
+          <span class="erp-badge" style="background:var(--amber-light);color:var(--amber)">İmalat Güçlü</span>
+          <ul class="erp-list">
+            <li>Malzeme ihtiyaç planlaması (MRP)</li>
+            <li>Sipariş bazlı üretim maliyet kartı</li>
+            <li>Reçete (BOM) yönetimi</li>
+            <li>Makine ve iş merkezi kapasitesi</li>
+            <li>Fire ve hurda takibi</li>
+            <li>Üretim emri — maliyet yansıtma</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>Netsis Muhasebe</h4>
+          <div class="sub">Finans Modülü</div>
+          <span class="erp-badge" style="background:var(--accent3);color:var(--accent)">Entegre</span>
+          <ul class="erp-list">
+            <li>Üretim → otomatik yevmiye aktarımı</li>
+            <li>Bütçe kontrol ve sapma analizi</li>
+            <li>Maliyet merkezi muhasebesi</li>
+            <li>Çok şirket konsolidasyon</li>
+            <li>e-Dönüşüm tam entegrasyonu</li>
+            <li>TFRS uyumlu paralel raporlama</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LUCA GENEL ── -->
+    <div id="erp-luca" class="tab-panel">
+      <h3>Luca — Mali Müşavir Muhasebe Programı</h3>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1.25rem">
+        Luca, İSMMMO (İstanbul Serbest Muhasebeci Mali Müşavirler Odası) iştiraki <strong>İSMMMO BİLİŞİM A.Ş.</strong> tarafından geliştirilen ve Türkiye'deki mali müşavirler için özel olarak tasarlanmış bulut tabanlı muhasebe yazılımıdır. TÜRMOB üyeleri ve serbest muhasebeci mali müşavirler arasında en yaygın kullanılan platformlardan biridir.
+      </p>
+
+      <div class="card-grid" style="margin-bottom:1.5rem">
+        <div class="card" style="border-left:3px solid var(--accent)">
+          <strong>Hedef Kitle</strong>
+          <p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Serbest muhasebeci mali müşavirler (SMMM), yeminli mali müşavirler (YMM) ve muhasebe büroları. Çoklu firma yönetimi ön planda.</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--green)">
+          <strong>Lisanslama & Fiyat</strong>
+          <p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Aylık abonelik modeli. Müşavir başına fiyatlandırılır; her müşavir altında sınırsız firma tanımlanabilir. İSMMMO üyelerine özel indirimler mevcuttur.</p>
+        </div>
+        <div class="card" style="border-left:3px solid var(--amber)">
+          <strong>Teknik Altyapı</strong>
+          <p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Tam bulut (SaaS) mimari. Masaüstü uygulama gerektirmez. Tarayıcı üzerinden erişim, otomatik güncelleme, 7/24 erişim.</p>
+        </div>
+      </div>
+
+      <h4>Luca Modülleri</h4>
+      <div class="erp-grid" style="margin-bottom:1.5rem">
+        <div class="erp-card">
+          <h4>Muhasebe & Defter</h4>
+          <div class="sub">Temel Muhasebe Modülü</div>
+          <span class="erp-badge" style="background:var(--accent3);color:var(--accent)">Çekirdek</span>
+          <ul class="erp-list">
+            <li>Tekdüzen Hesap Planı (THP) tam desteği</li>
+            <li>Yevmiye defteri, büyük defter, mizan</li>
+            <li>Otomatik banka ekstesi aktarımı</li>
+            <li>KDV hesaplama ve beyanname hazırlama</li>
+            <li>Muhtasar ve PHS beyanname otomasyonu</li>
+            <li>e-Beyanname GİB entegrasyonu</li>
+            <li>Geçici vergi ve kurumlar vergisi</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>e-Dönüşüm</h4>
+          <div class="sub">GİB Entegrasyonu</div>
+          <span class="erp-badge" style="background:var(--green-light);color:var(--green)">Tam Entegre</span>
+          <ul class="erp-list">
+            <li>e-Fatura gönder / al / arşivle</li>
+            <li>e-Arşiv Fatura oluşturma</li>
+            <li>e-Defter yevmiye + kebir imzalama</li>
+            <li>e-İrsaliye entegrasyonu</li>
+            <li>e-SMM (serbest meslek makbuzu)</li>
+            <li>BA/BS formları otomatik derleme</li>
+            <li>e-Bilanço XBRL oluşturma</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>İnsan Kaynakları</h4>
+          <div class="sub">İK & Bordro Modülü</div>
+          <span class="erp-badge" style="background:var(--amber-light);color:var(--amber)">Kapsamlı</span>
+          <ul class="erp-list">
+            <li>Personel özlük dosyası ve belge yönetimi</li>
+            <li>İşe giriş — SGK bildirgesi otomasyonu</li>
+            <li>Puantaj takibi — günlük / haftalık</li>
+            <li>Bordro hesaplama (2026 güncel rakamlar)</li>
+            <li>SGK Aylık Prim ve Hizmet Belgesi</li>
+            <li>Muhtasar+PHS beyan entegrasyonu</li>
+            <li>Kıdem / ihbar tazminatı hesabı</li>
+            <li>İşten çıkış — SGK bildirge otomasyonu</li>
+          </ul>
+        </div>
+        <div class="erp-card">
+          <h4>Cari & Stok</h4>
+          <div class="sub">Ticari Modüller</div>
+          <span class="erp-badge" style="background:var(--red-light);color:var(--red)">Ek Modül</span>
+          <ul class="erp-list">
+            <li>Müşteri ve tedarikçi cari hesap</li>
+            <li>Fatura / irsaliye / sipariş takibi</li>
+            <li>Stok giriş-çıkış ve sayım</li>
+            <li>Çek-senet yönetimi</li>
+            <li>Kasa ve banka modülü</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Luca'nın Avantajları — Rakip Yazılımlarla Kıyasla</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Özellik</th><th>Luca</th><th>Mikro</th><th>Logo GO</th></tr></thead>
+          <tbody>
+            <tr><td>Kurucu arka plan</td><td style="color:var(--green);font-weight:600">İSMMMO (meslek odası)</td><td>Özel şirket</td><td>Logo A.Ş.</td></tr>
+            <tr><td>Çoklu firma yönetimi</td><td style="color:var(--green)">✓ Sınırsız</td><td style="color:var(--green)">✓ Lisans bazlı</td><td style="color:var(--green)">✓</td></tr>
+            <tr><td>Tam bulut (SaaS)</td><td style="color:var(--green)">✓ Yerli bulut</td><td style="color:var(--amber)">Kısmi</td><td style="color:var(--amber)">Kısmi</td></tr>
+            <tr><td>Mali müşavir odaklı UI</td><td style="color:var(--green)">✓ Özelleşmiş</td><td>Genel</td><td>Genel</td></tr>
+            <tr><td>TÜRMOB entegrasyonu</td><td style="color:var(--green)">✓ Doğrudan</td><td style="color:var(--amber)">Kısmi</td><td style="color:var(--amber)">Kısmi</td></tr>
+            <tr><td>Müşteri portali</td><td style="color:var(--green)">✓ Var</td><td style="color:var(--red)">Yok</td><td style="color:var(--amber)">Sınırlı</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── LUCA İK & BORDRO ── -->
+    <div id="erp-luca-ik" class="tab-panel">
+      <h3>Luca İK Modülü — İşe Giriş, Puantaj, Bordro, İşten Çıkış</h3>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1.25rem">
+        Luca'nın İnsan Kaynakları modülü; işçinin işe girişinden işten çıkışına kadar tüm İK süreçlerini, yasal bildirim yükümlülüklerini ve bordro hesaplamalarını tek platformda yönetir.
+      </p>
+
+      <!-- 1. İŞE GİRİŞ -->
+      <h4>1 — İşe Giriş İşlemleri</h4>
+      <div class="example-block">
+        <div class="example-header">Örnek: Ahmet Yılmaz'ın İşe Girişi (01.02.2026)</div>
+        <div class="example-body">
+          <p style="font-size:.88rem;color:var(--txt2);margin-bottom:.75rem">
+            <strong>Luca → İK → Personel Tanımlama → Yeni Personel</strong> yolunu izleyin.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Alan</th><th>Girilecek Değer</th><th>Açıklama</th></tr></thead>
+              <tbody>
+                <tr><td>Ad Soyad</td><td>Ahmet Yılmaz</td><td>TC Kimlik ile eşleşmeli</td></tr>
+                <tr><td>TC Kimlik No</td><td>12345678901</td><td>SGK bildirge için zorunlu</td></tr>
+                <tr><td>İşe Giriş Tarihi</td><td>01.02.2026</td><td>SGK bildirge bu tarihten önce yapılmalı</td></tr>
+                <tr><td>Brüt Ücret</td><td>40.000,00 TL</td><td>Asgari ücretin üzeri</td></tr>
+                <tr><td>SGK İşyeri No</td><td>Otomatik seçilir</td><td>Birden fazla işyerinde dikkat</td></tr>
+                <tr><td>Meslek Kodu</td><td>2411.01 (Mali Analist)</td><td>ISCO-08 meslek kodları listesi</td></tr>
+                <tr><td>İş Sözleşmesi Türü</td><td>Belirsiz Süreli</td><td>Kıdem hakkı doğurur</td></tr>
+                <tr><td>Çalışma Türü</td><td>Tam Zamanlı (%100)</td><td>Yarım gün için %50 girilir</td></tr>
+                <tr><td>SGK Giriş Türü</td><td>01 — Normal Sigortalı</td><td>Yabancı uyruklu için farklı kod</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-warn" style="margin-top:.75rem">
+            <span class="callout-icon">⚠️</span>
+            <div><strong>Yasal Süre:</strong> SGK İşe Giriş Bildirgesi, işçinin fiilen çalışmaya başladığı günden <strong>en geç bir gün önce</strong> veya aynı gün GİB sistemine gönderilmelidir (5510 s.K. Md. 8). Luca bu bildirgeyi "SGK Bildirgesi Oluştur" butonu ile otomatik oluşturur ve e-imzalı gönderir. Gecikme halinde aylık brüt asgari ücretin iki katı idari para cezası uygulanır.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info" style="margin-top:.75rem">
+        <span class="callout-icon">📋</span>
+        <div>
+          <strong>İşe Girişte Toplanacak Belgeler (Luca Belge Yönetimine Yüklenir):</strong><br>
+          Nüfus cüzdanı fotokopisi · İkametgah belgesi · Son mezuniyet diploması · SGK sicil numarası · Vergi kimlik numarası · Sağlık raporu (ağır/tehlikeli işler) · Adli sicil kaydı (gerekliyse) · İş sözleşmesi (ıslak imzalı, 2 nüsha) · İşyeri özlük formu
+        </div>
+      </div>
+
+      <!-- 2. PUANTAJ -->
+      <h4 style="margin-top:1.5rem">2 — Puantaj Takibi</h4>
+      <div class="example-block">
+        <div class="example-header">Şubat 2026 Puantaj Girişi — Ahmet Yılmaz</div>
+        <div class="example-body">
+          <p style="font-size:.88rem;color:var(--txt2);margin-bottom:.75rem">
+            <strong>Luca → İK → Puantaj → Aylık Puantaj Girişi</strong> menüsünden ulaşılır. Toplu giriş veya çalışan bazlı giriş yapılabilir.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Gün Türü</th><th>Kod</th><th>Şubat 2026 Örneği</th><th>Bordro Etkisi</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Normal Çalışma</td><td>N</td><td>20 gün (Pazartesi–Cuma)</td><td>Tam ücret</td></tr>
+                <tr><td>Resmi Tatil</td><td>RT</td><td>0 gün (Şubat tatil yok)</td><td>Çalışılırsa 2 kat ücret</td></tr>
+                <tr><td>Hafta Sonu</td><td>HT</td><td>8 gün (Cmt+Pzr) — dahil edilmez</td><td>Ücret etkisi yok (5 gün sistem)</td></tr>
+                <tr><td>Yıllık İzin</td><td>Yİ</td><td>2 gün (17-18 Şubat)</td><td>Ücretli sayılır</td></tr>
+                <tr><td>Ücretsiz İzin</td><td>Üİ</td><td>—</td><td>SGK günü düşer, ücret kesilir</td></tr>
+                <tr><td>Raporlu (Sağlık)</td><td>R</td><td>1 gün (5 Şubat)</td><td>SGK'dan geçici iş göremezlik</td></tr>
+                <tr><td>Devamsızlık</td><td>D</td><td>—</td><td>Ücret kesintisi + disiplin</td></tr>
+                <tr><td>Fazla Mesai</td><td>FM</td><td>8 saat</td><td>%50 zamlı (günlük 3 saate kadar)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:.75rem;padding:.75rem 1rem;background:var(--bg3);border-radius:8px;font-size:.84rem">
+            <strong>Şubat 2026 Puantaj Özeti — Ahmet Yılmaz:</strong><br>
+            Çalışma günü: 20 gün &nbsp;|&nbsp; Yıllık izin: 2 gün &nbsp;|&nbsp; Rapor: 1 gün (SGK'ya bildirildi) &nbsp;|&nbsp; Fazla mesai: 8 saat &nbsp;|&nbsp; <strong>SGK Prim günü: 28 gün</strong> (raporlu gün dahil, ücretsiz izin hariç)
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. BORDRO -->
+      <h4 style="margin-top:1.5rem">3 — Bordro Hesaplama</h4>
+      <div class="example-block">
+        <div class="example-header">Şubat 2026 Bordro — Ahmet Yılmaz (Brüt 40.000 TL)</div>
+        <div class="example-body">
+          <p style="font-size:.88rem;color:var(--txt2);margin-bottom:.75rem">
+            <strong>Luca → İK → Bordro → Bordro Hesapla → Toplu Hesapla</strong> veya tek personel hesabı. Puantaj onaylandıktan sonra bordro otomatik hesaplanır.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Kalem</th><th class="num">Tutar (TL)</th><th>Açıklama</th></tr></thead>
+              <tbody>
+                <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.78rem;letter-spacing:.04em">BRÜT ÜCRET VE EK ÖDEMELER</td></tr>
+                <tr><td style="padding-left:1.2rem">Aylık Brüt Ücret</td><td class="num">40.000,00</td><td>Sözleşme ücreti</td></tr>
+                <tr><td style="padding-left:1.2rem">Fazla Mesai (8 saat × %150)</td><td class="num">1.090,91</td><td>8 × (40.000/220 × 1,5) = 8 × 272,73 × 0,5 × …</td></tr>
+                <tr><td style="font-weight:700">TOPLAM BRÜT</td><td class="num" style="font-weight:700">41.090,91</td><td></td></tr>
+                <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.78rem;letter-spacing:.04em">İŞÇİ KESİNTİLERİ</td></tr>
+                <tr><td style="padding-left:1.2rem">SGK Primi İşçi %14,0</td><td class="num" style="color:var(--red)">− 5.752,73</td><td>41.090,91 × 0,14</td></tr>
+                <tr><td style="padding-left:1.2rem">İşsizlik Sig. İşçi %1,0</td><td class="num" style="color:var(--red)">− 410,91</td><td>41.090,91 × 0,01</td></tr>
+                <tr><td style="padding-left:1.2rem">GV + DV Matrahı</td><td class="num">34.927,27</td><td>41.090,91 − 6.163,64</td></tr>
+                <tr><td style="padding-left:1.2rem">Gelir Vergisi (%15 ilk dilim)</td><td class="num" style="color:var(--red)">− 5.239,09</td><td>34.927,27 × 0,15</td></tr>
+                <tr><td style="padding-left:1.2rem">GV İstisnası (asgari ücret GV'si)</td><td class="num" style="color:var(--green)">+ 4.211,33</td><td>İstisna tutarı (asgari ücretin GV'si)</td></tr>
+                <tr><td style="padding-left:1.2rem">Ödenecek Gelir Vergisi</td><td class="num" style="color:var(--red)">− 1.027,76</td><td>5.239,09 − 4.211,33</td></tr>
+                <tr><td style="padding-left:1.2rem">Damga Vergisi (%0,759)</td><td class="num" style="color:var(--red)">− 265,10</td><td>34.927,27 × 0,00759</td></tr>
+                <tr><td style="font-weight:700;color:var(--green)">NET ÖDENECEK ÜCRET</td><td class="num" style="font-weight:700;color:var(--green)">34.385,32</td><td>Banka EFT tutarı</td></tr>
+                <tr><td colspan="3" style="background:var(--bg3);font-weight:700;font-size:.78rem;letter-spacing:.04em">İŞVEREN KESİNTİLERİ</td></tr>
+                <tr><td style="padding-left:1.2rem">İşveren SGK %20,75</td><td class="num">8.526,36</td><td>41.090,91 × 0,2075</td></tr>
+                <tr><td style="padding-left:1.2rem">İşveren İşsizlik %2,0</td><td class="num">821,82</td><td>41.090,91 × 0,02</td></tr>
+                <tr><td style="padding-left:1.2rem">Asgari Ücret Desteği</td><td class="num" style="color:var(--green)">− 1.270,00</td><td>2026 sabit destek</td></tr>
+                <tr><td style="font-weight:700;color:var(--red)">TOPLAM İŞVEREN MALİYETİ</td><td class="num" style="font-weight:700;color:var(--red)">49.163,50</td><td>41.090,91 + 9.348,18 − 1.270,00 + 265,10 + 1.027,76 − 1.368,45</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:.75rem;padding:.75rem 1rem;background:var(--green-light);border-radius:8px;font-size:.84rem;border-left:3px solid var(--green)">
+            <strong>Luca Bordro Muhasebe Kaydı (Otomatik Aktarım):</strong><br>
+            770 Genel Yön. Giderleri &nbsp;&nbsp;&nbsp;&nbsp; 49.163,50<br>
+            &nbsp;&nbsp;&nbsp;335 Personele Borçlar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 34.385,32<br>
+            &nbsp;&nbsp;&nbsp;360 SGK Primleri Karşılığı &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14.778,18<br>
+            &nbsp;&nbsp;&nbsp;361 Ödenecek GV &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.027,76 (çalışan payı)<br>
+            &nbsp;&nbsp;&nbsp;381 Gider Tahakkukları (DV) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 265,10
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info" style="margin-top:.75rem">
+        <span class="callout-icon">🔄</span>
+        <div>
+          <strong>SGK Aylık Prim Hizmet Belgesi (APHB):</strong> Luca, bordro hesaplandıktan sonra otomatik olarak SGK e-Bildirge sistemine uygun APHB dosyasını oluşturur. <strong>Luca → İK → Bildirgeler → APHB Oluştur → GİB'e Gönder</strong> adımlarıyla tek tıkla bildirge tamamlanır. Son bildirim tarihi her ayın 23'üdür.
+        </div>
+      </div>
+
+      <!-- 4. İŞTEN ÇIKIŞ -->
+      <h4 style="margin-top:1.5rem">4 — İşten Çıkış İşlemleri</h4>
+      <div class="example-block">
+        <div class="example-header">Örnek: Ahmet Yılmaz'ın İşten Çıkışı (28.02.2026) — İstifa</div>
+        <div class="example-body">
+          <p style="font-size:.88rem;color:var(--txt2);margin-bottom:.75rem">
+            <strong>Luca → İK → Personel → İşten Çıkış</strong> menüsünden ilgili personel seçilir.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Alan</th><th>Değer / Seçim</th><th>Açıklama</th></tr></thead>
+              <tbody>
+                <tr><td>Çıkış Tarihi</td><td>28.02.2026</td><td>Son çalışma günü</td></tr>
+                <tr><td>SGK Çıkış Kodu</td><td>03 — İstifa</td><td>İşten çıkış nedenine göre değişir (aşağı bkz.)</td></tr>
+                <tr><td>Kullanılmamış İzin</td><td>8 gün kaldı</td><td>Luca otomatik hesaplar → ödeme gerekir</td></tr>
+                <tr><td>Kıdem Tazminatı</td><td>İstifada ödenmez</td><td>İstisnalar: evlilik (kadın), askerlik vb.</td></tr>
+                <tr><td>İhbar Tazminatı</td><td>İstifada çalışan öder</td><td>8 haftalık ihbar süresi dolmadan ayrılırsa işveren talep edebilir</td></tr>
+                <tr><td>SGK İşten Çıkış Bildirgesi</td><td>Otomatik oluşturulur</td><td>10 gün içinde SGK'ya bildirim zorunlu</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="font-size:.87rem;font-weight:600;color:var(--txt);margin:.75rem 0 .4rem">SGK İşten Çıkış Kodları (Sık Kullanılanlar):</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Kod</th><th>Neden</th><th>Kıdem</th><th>İhbar</th><th>İşsizlik Hakkı</th></tr></thead>
+              <tbody>
+                <tr><td style="font-family:var(--font-mono)">01</td><td>İşveren fesih (geçerli neden)</td><td style="color:var(--green)">✓</td><td style="color:var(--green)">✓ İşveren öder</td><td style="color:var(--green)">✓</td></tr>
+                <tr><td style="font-family:var(--font-mono)">02</td><td>İşveren fesih (disiplin)</td><td style="color:var(--red)">✗</td><td style="color:var(--red)">✗</td><td style="color:var(--red)">✗</td></tr>
+                <tr><td style="font-family:var(--font-mono)">03</td><td>İstifa (işçi fesih)</td><td style="color:var(--red)">✗</td><td style="color:var(--amber)">Çalışan öder</td><td style="color:var(--red)">✗</td></tr>
+                <tr><td style="font-family:var(--font-mono)">04</td><td>Emeklilik (yaş haddinden)</td><td style="color:var(--green)">✓</td><td style="color:var(--red)">✗</td><td style="color:var(--red)">✗</td></tr>
+                <tr><td style="font-family:var(--font-mono)">05</td><td>Emeklilik (kıdem sigortasından)</td><td style="color:var(--green)">✓</td><td style="color:var(--red)">✗</td><td style="color:var(--red)">✗</td></tr>
+                <tr><td style="font-family:var(--font-mono)">11</td><td>Deneme süresi feshi</td><td style="color:var(--red)">✗</td><td style="color:var(--red)">✗</td><td style="color:var(--red)">✗</td></tr>
+                <tr><td style="font-family:var(--font-mono)">17</td><td>İşçi haklı feshi (m. 24)</td><td style="color:var(--green)">✓</td><td style="color:var(--red)">✗</td><td style="color:var(--green)">✓</td></tr>
+                <tr><td style="font-family:var(--font-mono)">22</td><td>Evlilik (kadın işçi)</td><td style="color:var(--green)">✓</td><td style="color:var(--red)">✗</td><td style="color:var(--red)">✗</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. KIDEM / İHBAR HESABI -->
+      <h4 style="margin-top:1.5rem">5 — Kıdem & İhbar Tazminatı Hesabı</h4>
+      <div class="example-block">
+        <div class="example-header">Kıdem & İhbar Hesabı — Mehmet Demir (İşveren Feshi, Kod 01)</div>
+        <div class="example-body">
+          <pre>PERSONELİN BİLGİLERİ:
+  İşe Giriş  : 15.03.2019
+  Çıkış      : 28.02.2026
+  Hizmet     : 6 yıl 11 ay 13 gün → 6,938 yıl (Luca otomatik hesaplar)
+  Brüt Maaş  : 55.000 TL/ay
+  Son 12 Ay  : Aylık 55.000 TL + 4.583 TL yemek + 1.375 TL yol (ortalama)
+  Giydirilmiş Ücret : 60.958,33 TL (kıdem hesabı için)
+
+KIDEM TAZMİNATI:
+  Tavan (01.01.2026)       : 64.948,77 TL
+  Esas Ücret               : min(60.958,33; 64.948,77) = 60.958,33 TL
+  Kıdem Tazminatı          : 60.958,33 × 6,938 = 422.885,20 TL
+
+İHBAR TAZMİNATI (4857 s.K. Md. 17):
+  Hizmet 3–6 yıl arası     : 6 hafta
+  Hizmet 6+ yıl            : 8 hafta  ← Mehmet 6 yılı geçti
+  Günlük Brüt              : 55.000 / 30 = 1.833,33 TL
+  İhbar Tazminatı          : 1.833,33 × 56 gün = 102.666,67 TL
+
+KULLANILMAMIŞ İZİN ÖDEMESİ:
+  Kalan izin               : 14 gün
+  Günlük Brüt              : 55.000 / 22 iş günü = 2.500,00 TL
+  İzin Ücreti              : 14 × 2.500 = 35.000,00 TL
+
+TOPLAM SON ÖDEME          : 560.551,87 TL</pre>
+
+          <div class="callout callout-warn" style="margin-top:.5rem">
+            <span class="callout-icon">📌</span>
+            <div>
+              <strong>Luca'da Kıdem Hesabı:</strong> <em>İK → İşten Çıkış → Tazminat Hesapla</em> adımını tamamladıktan sonra Luca otomatik olarak son 12 ayın ek ödemelerini (ikramiye, prim, yemek, yol) giydirilmiş ücrete dahil eder ve tazminat tutarını hesaplar. Ardından muhasebe kaydını <em>Muhasebeye Aktar</em> butonuyla tek tıkla yevmiyeye yansıtırsınız:<br><br>
+              <code style="font-size:.82rem">770 Genel Yön. Giderleri → 472 Kıdem Tazminatı Karşılıkları</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. YEVMİYE ÖZET -->
+      <h4 style="margin-top:1.5rem">6 — Luca'da Otomatik Muhasebe Aktarımı</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>İK İşlemi</th><th>Luca Menü Yolu</th><th>Otomatik Muhasebe Kaydı</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Bordro Tahakkuku</td>
+              <td>İK → Bordro → Muhasebeye Aktar</td>
+              <td>770 / 335, 360, 361, 381</td>
+            </tr>
+            <tr>
+              <td>Maaş Ödeme</td>
+              <td>İK → Ödeme → Banka Ödemesi</td>
+              <td>335 / 102 Bankalar</td>
+            </tr>
+            <tr>
+              <td>SGK Ödemesi</td>
+              <td>İK → SGK → Prim Ödemesi</td>
+              <td>360 / 102 Bankalar</td>
+            </tr>
+            <tr>
+              <td>Kıdem Karşılığı</td>
+              <td>İK → Karşılıklar → Dönem Sonu</td>
+              <td>770 / 472</td>
+            </tr>
+            <tr>
+              <td>İzin Karşılığı</td>
+              <td>İK → İzin → Karşılık Hesapla</td>
+              <td>770 / 379</td>
+            </tr>
+            <tr>
+              <td>Tazminat Ödemesi</td>
+              <td>İK → İşten Çıkış → Ödeme</td>
+              <td>472 veya 770 / 102</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-success" style="margin-top:1rem">
+        <span class="callout-icon">✅</span>
+        <div>
+          <strong>Luca İK Akışı Özeti:</strong>
+          Personel tanımla → İşe giriş SGK bildirge gönder → Aylık puantaj gir ve onayla → Bordro hesapla → APHB oluştur ve gönder → Muhasebe kaydını aktar → Gerekirse işten çıkış işlemleri yap → Çıkış SGK bildirge gönder → Tazminat hesapla ve öde.
+          <br>Tüm adımlar Luca içinde kapalı döngü çalışır; harici program veya excel gerektirmez.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── e-DÖNÜŞÜM ── -->
+    <div id="erp-edont" class="tab-panel">
+      <h3>e-Dönüşüm — Yasal Zorunluluklar ve Takvim</h3>
+      <p style="color:var(--txt3);font-size:.9rem;margin-bottom:1.25rem">Türkiye'de GİB tarafından zorunlu kılınan e-dönüşüm uygulamaları işletmelerin büyük çoğunluğunu kapsamaktadır. Tüm ERP yazılımları bu entegrasyonu sağlamak zorundadır.</p>
+
+      <h4>e-Dönüşüm Uygulamaları ve Zorunluluk Kapsamı</h4>
+      <div class="table-wrap" style="margin-bottom:1.25rem">
+        <table>
+          <thead><tr><th>Uygulama</th><th>Zorunluluk Kapsamı</th><th>Geçiş Tarihi</th><th>Ceza</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>e-Fatura</strong></td>
+              <td>Brüt ciro ≥ 3 Mn TL veya belirli sektörler</td>
+              <td>2012'den itibaren (kademeli)</td>
+              <td>Özel usulsüzlük cezası</td>
+            </tr>
+            <tr>
+              <td><strong>e-Arşiv Fatura</strong></td>
+              <td>e-Fatura mükellefi olmayanlar — internet satışı ≥ 30.000 TL</td>
+              <td>2020'den itibaren</td>
+              <td>Özel usulsüzlük cezası</td>
+            </tr>
+            <tr>
+              <td><strong>e-Defter</strong></td>
+              <td>e-Fatura mükellefleri</td>
+              <td>2012'den itibaren (kademeli)</td>
+              <td>2. derece usulsüzlük cezası</td>
+            </tr>
+            <tr>
+              <td><strong>e-İrsaliye</strong></td>
+              <td>e-Fatura mükellefleri + lojistik sektörü</td>
+              <td>2020'den itibaren</td>
+              <td>Özel usulsüzlük cezası</td>
+            </tr>
+            <tr>
+              <td><strong>e-SMM</strong></td>
+              <td>Serbest meslek kazancı sahipleri</td>
+              <td>2020'den itibaren</td>
+              <td>Özel usulsüzlük cezası</td>
+            </tr>
+            <tr>
+              <td><strong>e-Müstahsil</strong></td>
+              <td>Zirai ürün alıcıları</td>
+              <td>2022'den itibaren</td>
+              <td>Özel usulsüzlük cezası</td>
+            </tr>
+            <tr>
+              <td><strong>e-Bilanço / e-GelirT.</strong></td>
+              <td>Kurumlar vergisi mükellefleri</td>
+              <td>2015'ten itibaren</td>
+              <td>Usulsüzlük cezası</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>e-Defter Aylık Süreç (Tüm ERP Yazılımlarında Benzer)</h4>
+      <div class="card-grid">
+        <div class="card">
+          <strong style="color:var(--accent)">1. Yevmiye Kapatma</strong>
+          <p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Ay içindeki tüm muhasebe kayıtları girilir ve dönem kapatılır. Hatalı kayıtlar düzeltilir.</p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--accent)">2. e-Defter Dosyası</strong>
+          <p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Yazılım yevmiye ve büyük defter için XML (XBRL-GL) formatında dosya oluşturur.</p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--accent)">3. Mali Mühür/e-İmza</strong>
+          <p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">Oluşturulan dosya yetkili kişinin mali mührü veya e-imzasıyla imzalanır.</p>
+        </div>
+        <div class="card">
+          <strong style="color:var(--accent)">4. GİB'e Gönderim</strong>
+          <p style="font-size:.84rem;margin-top:.4rem;color:var(--txt3)">İmzalı dosya GİB e-Defter portalına yüklenir. Son tarih: takip eden ayın 3. ayı sonuna kadar.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-warn" style="margin-top:1.25rem">
+        <span class="callout-icon">⚠️</span>
+        <div>
+          <strong>Önemli Hatırlatma:</strong> e-Defter dosyaları GİB'e gönderildikten sonra <strong>değiştirilemez</strong>. Hata yapılması halinde yasal düzeltme yolları sınırlıdır (ek beyan, düzeltme beyannamesi). Bu nedenle e-Defter gönderimi öncesi mizan ve yevmiye kontrolü kritik önem taşır.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- AY SONU KONTROL LİSTESİ -->
+<section id="aysonu" class="page-section">
+  <div class="section-header">
+    <div class="section-label">Kapanış Prosedürü</div>
+    <h2>Ay Sonu Kontrol Listesi</h2>
+    <div class="section-divider"></div>
+    <p>Her ayın kapanışında tamamlanması gereken 39 adım — 8 kategoride, tıklayarak işaretleyin ve ilerlemenizi takip edin.</p>
+  </div>
+
+  <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem;align-items:center">
+    <button onclick="resetAySonu()" style="padding:.4rem .9rem;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--txt2);cursor:pointer;font-size:.82rem">↺ Sıfırla</button>
+    <button onclick="checkAllAySonu()" style="padding:.4rem .9rem;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--txt2);cursor:pointer;font-size:.82rem">✓ Tümünü İşaretle</button>
+    <span id="ay-progress-text" style="font-size:.85rem;color:var(--txt2);margin-left:.4rem"></span>
+  </div>
+  <div id="ay-progress-bar" style="height:6px;border-radius:3px;background:var(--bg3);margin-bottom:1.5rem;overflow:hidden">
+    <div id="ay-progress-fill" style="height:100%;width:0%;background:var(--green);border-radius:3px;transition:width .3s"></div>
+  </div>
+
+  <div class="checklist-grid" id="ay-sonu-grid">
+
+    <div class="checklist-card">
+      <h4>📥 1 — Belgeler &amp; Veri Girişi</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Tüm satış faturalarının sisteme girildiğini doğrula</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Tüm alış faturalarının sisteme girildiğini doğrula</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>e-Fatura / e-Arşiv gelen kutusu kontrol edildi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Masraf beyanları ve avanslar işlendi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Nakit/kredi kartı harcama belgeler eşleştirildi</span></label>
+    </div>
+
+    <div class="checklist-card">
+      <h4>🏦 2 — Banka &amp; Kasa Mutabakatı</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Tüm banka hesapları mutabık kılındı (102 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Kasa sayımı yapıldı, fazla/noksan kaydedildi (197 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Kredi kartı POS tahsilatları banka ekstresine uydu</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Dövizli hesaplar için kur farkı hesaplandı (646/656 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Geçiş hesaplarında (108, 109) bakiye kalmadı</span></label>
+    </div>
+
+    <div class="checklist-card">
+      <h4>🧾 3 — Cari Hesap &amp; Mutabakat</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Müşteri cari hesapları (120) mutabakat e-postası gönderildi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Tedarikçi cari hesapları (320) mutabakat alındı</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Vadesi geçen alacaklar raporlandı</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Şüpheli alacak varsa karşılık ayrıldı (129/654 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Çek/senet portföyü (121/321) fiz. sayım ile eşleşti</span></label>
+    </div>
+
+    <div class="checklist-card">
+      <h4>📦 4 — Stok &amp; Maliyet</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Stok kartları fiziki sayımla karşılaştırıldı (15X hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Fire / kayıp farkları kayıt altına alındı</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Üretim varsa WIP (151) tamamlanma oranı güncellendi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Satılan malın maliyeti (621) hesaplandı ve kaydedildi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Stok değer düşüklüğü varsa karşılık ayrıldı (158/654)</span></label>
+    </div>
+
+    <div class="checklist-card">
+      <h4>💰 5 — Tahakkuklar &amp; Karşılıklar</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Bordro tahakkuku yapıldı (335/360/381 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Kira tahakkuku kaydedildi (381 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Elektrik / su / doğalgaz tahakkukları girildi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Amortisman ayrıldı (257/660 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Kullanılmamış izin karşılığı güncellendi (379 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Kıdem tazminatı karşılığı hesaplandı (472 hs.)</span></label>
+    </div>
+
+    <div class="checklist-card">
+      <h4>🧮 6 — Vergi &amp; SGK</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>KDV beyannamesi hazırlandı ve ödendi (191/360 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Muhtasar+PHS beyannamesi verildi ve ödendi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>SGK aylık bildirge verildi (360 hs.)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Devreden KDV tutarı doğru aktarıldı</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Peşin ödenen vergilerin takibi yapıldı (193 hs.)</span></label>
+    </div>
+
+    <div class="checklist-card">
+      <h4>🏗️ 7 — Sabit Kıymet &amp; Duran Varlık</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Yeni alınan sabit kıymetler kayıt altına alındı</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Elden çıkarılan varlıklar kayıttan silindi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>TFRS 16 kira sözleşmesi faiz + amortisman ayrıldı</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Tamir-bakım mı / aktifleştirme mi? ayrımı yapıldı</span></label>
+    </div>
+
+    <div class="checklist-card">
+      <h4>📊 8 — Raporlama &amp; Kapanış</h4>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Mizan dengesi kontrol edildi (borç = alacak)</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Aylık gelir tablosu hazırlandı ve gözden geçirildi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Bütçe-gerçekleşme karşılaştırması yapıldı</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Nakit akış tahmini güncellendi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Yönetim raporları ilgili kişilere gönderildi</span></label>
+      <label class="cl-item"><input type="checkbox" onchange="updateAyProgress()"><span>Dönem kapandı, yeni dönem açıldı (sistem kilidi)</span></label>
+    </div>
+
+  </div>
+
+  <div id="ay-tamamlandi" style="display:none;margin-top:1.5rem;padding:1.2rem 1.5rem;border-radius:10px;background:var(--green-light);color:var(--green);font-weight:600;font-size:1rem;text-align:center">
+    🎉 Tebrikler! Ay sonu kapanışı tamamlandı. Tüm maddeler işaretlendi.
+  </div>
+</section>
+
+<script>
+(function(){
+  const STORAGE_KEY = 'aysonu-checklist-v1';
+  function getBoxes(){ return document.querySelectorAll('#ay-sonu-grid input[type=checkbox]'); }
+
+  function save(){
+    const state = [...getBoxes()].map(c=>c.checked);
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+  function load(){
+    try{
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+      if(saved.length) getBoxes().forEach((c,i)=>{ if(saved[i]) c.checked=true; });
+    }catch(e){}
+  }
+
+  window.updateAyProgress = function(){
+    const boxes = [...getBoxes()];
+    const done = boxes.filter(c=>c.checked).length;
+    const total = boxes.length;
+    const pct = Math.round(done/total*100);
+    document.getElementById('ay-progress-fill').style.width = pct+'%';
+    document.getElementById('ay-progress-text').textContent = done+'/'+total+' tamamlandı ('+pct+'%)';
+    document.getElementById('ay-tamamlandi').style.display = done===total ? 'block' : 'none';
+    save();
+  };
+
+  window.resetAySonu = function(){
+    getBoxes().forEach(c=>c.checked=false);
+    updateAyProgress();
+  };
+
+  window.checkAllAySonu = function(){
+    getBoxes().forEach(c=>c.checked=true);
+    updateAyProgress();
+  };
+
+  document.addEventListener('DOMContentLoaded',function(){
+    load();
+    updateAyProgress();
+  });
+})();
+</script>
+
+<!-- BELGELER -->
+<section id="belgeler" class="page-section">
+  <div class="section-header">
+    <div class="section-label">Ücretsiz İndirme</div>
+    <h2>İndirilebilir Dökümanlar</h2>
+    <div class="section-divider"></div>
+    <p>Hazır Excel hesaplayıcıları ve detaylı PDF rehberleri — ücretsiz, doğrudan indirin.</p>
+  </div>
+
+  <div class="dl-grid">
+
+    <!-- Excel 1 -->
+    <div class="dl-card">
+      <div class="dl-card-top">
+        <div class="dl-icon dl-icon-xlsx">📊</div>
+        <div class="dl-card-info">
+          <h4>2026 Bordro & Kıdem Tazminatı Hesaplayıcı</h4>
+          <p>Brüt/Net ücret hesabı, SGK kesintileri, işveren maliyeti ve kıdem tazminatı otomatik formüller ile.</p>
+        </div>
+      </div>
+      <div class="dl-meta">
+        <span class="dl-badge dl-badge-xlsx">XLSX</span>
+        <span class="dl-badge dl-badge-info">2 Sayfa</span>
+        <span class="dl-badge dl-badge-info">2026 Güncel</span>
+      </div>
+      <div class="dl-sheets">Sayfalar: <span>Bordro Hesaplayıcı</span> · <span>Kıdem Tazminatı</span></div>
+      <p style="font-size:.8rem;color:var(--txt4);line-height:1.5">
+        ✓ 3 çalışan paralel hesaplama · ✓ SGK prim tablosu · ✓ Yevmiye kayıt şablonu · ✓ Mavi hücreler değiştirilebilir
+      </p>
+      <a href="#" onclick="indir('bordro');return false;" class="dl-btn dl-btn-xlsx">
+        ⬇ Excel İndir (.xlsx)
+      </a>
+    </div>
+
+    <!-- Excel 2 -->
+    <div class="dl-card">
+      <div class="dl-card-top">
+        <div class="dl-icon dl-icon-xlsx">🏭</div>
+        <div class="dl-card-info">
+          <h4>Maliyet, BEP & Sapma Analizi Modeli</h4>
+          <p>Başabaş noktası hesabı, sipariş maliyet kartı ve standart maliyet sapma analizi şablonları.</p>
+        </div>
+      </div>
+      <div class="dl-meta">
+        <span class="dl-badge dl-badge-xlsx">XLSX</span>
+        <span class="dl-badge dl-badge-info">3 Sayfa</span>
+        <span class="dl-badge dl-badge-info">Dinamik Model</span>
+      </div>
+      <div class="dl-sheets">Sayfalar: <span>BEP Analizi</span> · <span>Sipariş Maliyet Kartı</span> · <span>Sapma Analizi</span></div>
+      <p style="font-size:.8rem;color:var(--txt4);line-height:1.5">
+        ✓ Fiyat değişimi senaryo tablosu · ✓ 3 ürün paralel BEP · ✓ 6 sapma türü formülü · ✓ Renk kodlu hücreler
+      </p>
+      <a href="#" onclick="indir('maliyet_xl');return false;" class="dl-btn dl-btn-xlsx">
+        ⬇ Excel İndir (.xlsx)
+      </a>
+    </div>
+
+    <!-- Excel 3 -->
+    <div class="dl-card">
+      <div class="dl-card-top">
+        <div class="dl-icon dl-icon-xlsx">📈</div>
+        <div class="dl-card-info">
+          <h4>Mali Oran Analizi — 4 Yıllık Karşılaştırmalı Model</h4>
+          <p>Likidite, kârlılık, kaldıraç ve devir hızı oranları — 4 yıl karşılaştırmalı, sektör normu referanslarıyla.</p>
+        </div>
+      </div>
+      <div class="dl-meta">
+        <span class="dl-badge dl-badge-xlsx">XLSX</span>
+        <span class="dl-badge dl-badge-info">1 Sayfa</span>
+        <span class="dl-badge dl-badge-info">2022–2025E</span>
+      </div>
+      <div class="dl-sheets">İçerik: <span>Likidite</span> · <span>Kârlılık</span> · <span>Kaldıraç</span> · <span>Devir Hızı</span></div>
+      <p style="font-size:.8rem;color:var(--txt4);line-height:1.5">
+        ✓ 15 finansal oran otomatik hesaplama · ✓ Sektör norm karşılaştırması · ✓ Mavi hücreler güncellenebilir
+      </p>
+      <a href="#" onclick="indir('oran');return false;" class="dl-btn dl-btn-xlsx">
+        ⬇ Excel İndir (.xlsx)
+      </a>
+    </div>
+
+    <!-- PDF 1 -->
+    <div class="dl-card">
+      <div class="dl-card-top">
+        <div class="dl-icon dl-icon-pdf">📋</div>
+        <div class="dl-card-info">
+          <h4>2026 Vergi & Muhasebe Rehberi (PDF)</h4>
+          <p>Asgari ücret, SGK primleri, vergi takvimi, KDV oranları, yevmiye kayıtları — tam referans dökümanı.</p>
+        </div>
+      </div>
+      <div class="dl-meta">
+        <span class="dl-badge dl-badge-pdf">PDF</span>
+        <span class="dl-badge dl-badge-info">~12 Sayfa</span>
+        <span class="dl-badge dl-badge-info">Baskıya Hazır</span>
+      </div>
+      <div class="dl-sheets">Bölümler: <span>Bordro</span> · <span>Vergi Takvimi</span> · <span>Oranlar</span> · <span>Kayıtlar</span></div>
+      <p style="font-size:.8rem;color:var(--txt4);line-height:1.5">
+        ✓ Tüm 2026 rakamları · ✓ GİB resmi tarihleri · ✓ Tablolarla desteklenmiş · ✓ A4 baskıya uygun
+      </p>
+      <a href="#" onclick="indir('vergi_pdf');return false;" class="dl-btn dl-btn-pdf">
+        ⬇ PDF İndir
+      </a>
+    </div>
+
+    <!-- PDF 2 -->
+    <div class="dl-card">
+      <div class="dl-card-top">
+        <div class="dl-icon dl-icon-pdf">🎓</div>
+        <div class="dl-card-info">
+          <h4>Maliyet Muhasebesi Ders Notları (PDF)</h4>
+          <p>Temel kavramlar, sipariş/safha maliyeti, BEP analizi ve sapma analizi — sayısal örneklerle.</p>
+        </div>
+      </div>
+      <div class="dl-meta">
+        <span class="dl-badge dl-badge-pdf">PDF</span>
+        <span class="dl-badge dl-badge-info">~10 Sayfa</span>
+        <span class="dl-badge dl-badge-info">Ders Notu</span>
+      </div>
+      <div class="dl-sheets">Bölümler: <span>Kavramlar</span> · <span>Sistemler</span> · <span>BEP</span> · <span>Sapma Analizi</span></div>
+      <p style="font-size:.8rem;color:var(--txt4);line-height:1.5">
+        ✓ Kapsamlı formüller · ✓ Gerçekçi sayısal örnekler · ✓ Tablo ve şemalar · ✓ Sınava hazırlık formatı
+      </p>
+      <a href="#" onclick="indir('maliyet_pdf');return false;" class="dl-btn dl-btn-pdf">
+        ⬇ PDF İndir
+      </a>
+    </div>
+
+  </div>
+
+  <div class="callout callout-info" style="margin-top:1.5rem">
+    <span class="callout-icon">ℹ️</span>
+    <div>Tüm dökümanlar ücretsiz ve telif hakkı kaygısı olmaksızın kullanılabilir. Excel dosyaları <strong>openpyxl</strong> ile oluşturulmuş olup Microsoft Excel, LibreOffice Calc ve Google Sheets ile uyumludur. PDF dosyaları A4 baskıya uygundur.</div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="page-section">
+  <div class="section-header">
+    <div class="section-label">Kendini Test Et</div>
+    <h2>Bilgi Testi</h2>
+    <div class="section-divider"></div>
+    <p>10 soru, detaylı açıklamalar ve puan takibi. Her soruyu yanıtladıktan sonra doğru cevap ve gerekçesi gösterilir.</p>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-progress">
+      <span id="qNum" style="font-size:.8rem;font-weight:600;color:var(--txt3)">1 / 10</span>
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qBar" style="width:10%"></div></div>
+      <span id="qScore" style="font-size:.8rem;font-weight:600;color:var(--accent)">Puan: 0</span>
+    </div>
+    <div id="quizBody">
+      <div class="quiz-q" id="quizQ"></div>
+      <div class="quiz-options" id="quizOpts"></div>
+      <div class="quiz-explanation" id="quizExp"></div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="qNext" onclick="nextQ()" style="display:none">Sonraki Soru →</button>
+      </div>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <div class="quiz-score-num" id="scoreFinal"></div>
+      <p id="scoreMsg"></p>
+      <button class="btn btn-primary" onclick="resetQuiz()">Tekrar Dene</button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div><strong>MuhasebeAkademi</strong> — Hamdi Şerbetçi</div>
+  <div style="color:var(--txt3);font-size:.8rem;margin-top:.4rem">Ücretsiz · Gönüllü · Bağımsız Öğrenme Platformu · 2026</div>
+  <div class="footer-links">
+    <a href="#" onclick="showSection('konular');return false;">Konular</a>
+    <a href="#" onclick="showSection('standartlar');return false;">Maliyet Muhasebesi</a>
+    <a href="#" onclick="showSection('asgari');return false;">2026 Ücret</a>
+    <a href="#" onclick="showSection('takvim');return false;">Vergi Takvimi</a>
+    <a href="#" onclick="showSection('aysonu');return false;">Ay Sonu Kontrol</a>
+    <a href="#" onclick="showSection('belgeler');return false;">İndir</a>
+    <a href="#" onclick="showSection('quiz');return false;">Bilgi Testi</a>
+
+  </div>
+</footer>
+
+<script>
+// ── THEME ──
+const toggle = document.getElementById('themeToggle');
+const saved = localStorage.getItem('theme') || 'light';
+if(saved === 'dark') { document.documentElement.setAttribute('data-theme','dark'); toggle.textContent='☀️'; }
+toggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  toggle.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+});
+
+// ── SCROLL TO TOP ──
+const scrollBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollBtn.classList.toggle('visible', window.scrollY > 400);
+});
+scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// ── TABS ──
+
+// ── SAYFA NAVİGASYONU ──
+function showSection(id) {
+  // Tüm bölümleri gizle
+  document.querySelectorAll('.page-section').forEach(s => {
+    s.classList.remove('active-section');
+  });
+  // Hedef bölümü göster
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add('active-section');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  // Nav aktif durumunu güncelle
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('nav-active');
+    const fn = a.getAttribute('onclick') || '';
+    if (fn.includes("'" + id + "'")) {
+      a.classList.add('nav-active');
+    }
+  });
+  // URL hash güncelle (geri/ileri buton desteği)
+  if (history.pushState) {
+    history.pushState(null, '', '#' + id);
+  }
+}
+
+// Geri/ileri buton desteği
+window.addEventListener('popstate', function() {
+  const hash = location.hash.replace('#', '') || 'konular';
+  showSection(hash);
+});
+
+// Sayfa yüklenince URL hash'e veya varsayılan olarak 'konular'a git
+document.addEventListener('DOMContentLoaded', function() {
+  const hash = location.hash.replace('#', '');
+  showSection(hash && document.getElementById(hash) ? hash : 'konular');
+});
+
+function switchTab(btn, id) {
+  const wrapper = btn.closest('.tabs-wrapper');
+  wrapper.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  wrapper.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+// ── FAQ ──
+function toggleFaq(btn) {
+  const ans = btn.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  ans.classList.toggle('open', !isOpen);
+}
+
+// ── CALCULATORS ──
+function rateColor(val, good, warn) {
+  if(val >= good) return 'good';
+  if(val >= warn) return 'warn';
+  return 'bad';
+}
+function showResult(id, rows) {
+  const el = document.getElementById(id);
+  el.style.display = 'block';
+  el.innerHTML = rows.map(r => `<div class="result-row"><span>${r.label}</span><span class="rval ${r.cls || ''}">${r.val}</span></div>`).join('');
+}
+function calcLikidite() {
+  const dv=+document.getElementById('lDV').value||27330000;
+  const st=+document.getElementById('lStok').value||8470000;
+  const kv=+document.getElementById('lKV').value||16450000;
+  const cari = (dv/kv).toFixed(2);
+  const asit = ((dv-st)/kv).toFixed(2);
+  showResult('lResult',[
+    {label:'Cari Oran (≥2 iyi)', val:cari, cls:rateColor(+cari,2,1.2)},
+    {label:'Asit-Test Oranı (≥1 iyi)', val:asit, cls:rateColor(+asit,1,0.8)}
+  ]);
+}
+function calcKarlılık() {
+  const nk=+document.getElementById('kNK').value||5680000;
+  const nh=+document.getElementById('kNH').value||68400000;
+  const tv=+document.getElementById('kTV').value||64200000;
+  const marj = ((nk/nh)*100).toFixed(1)+'%';
+  const roa = ((nk/tv)*100).toFixed(1)+'%';
+  showResult('kResult',[
+    {label:'Net Kâr Marjı (≥10% iyi)', val:marj, cls:rateColor(nk/nh*100,10,5)},
+    {label:'ROA (≥8% iyi)', val:roa, cls:rateColor(nk/tv*100,8,4)}
+  ]);
+}
+function calcKaldiraç() {
+  const b=+document.getElementById('kaBorç').value||33380000;
+  const ok=+document.getElementById('kaOK').value||30620000;
+  const ebit=+document.getElementById('kaEBIT').value||12040000;
+  const fg=+document.getElementById('kaFG').value||3820000;
+  const bo = (b/ok).toFixed(2);
+  const fk = (ebit/fg).toFixed(2);
+  showResult('kaResult',[
+    {label:'Borç/Özkaynak (≤1 iyi)', val:bo, cls:rateColor(+(+bo<=1),1,0.5)},
+    {label:'Faiz Karşılama (≥3 iyi)', val:fk, cls:rateColor(+fk,3,1.5)}
+  ]);
+}
+function calcDevir() {
+  const ns=+document.getElementById('dNS').value||68400000;
+  const ta=+document.getElementById('dTA').value||10770000;
+  const smm=+document.getElementById('dSMM').value||47200000;
+  const st=+document.getElementById('dST').value||7787500;
+  const ats = Math.round(ta/ns*365)+' gün';
+  const sks = Math.round(st/smm*365)+' gün';
+  showResult('dResult',[
+    {label:'Alacak Tahsil Süresi', val:ats, cls:''},
+    {label:'Stok Kalma Süresi', val:sks, cls:''}
+  ]);
+}
+
+// ── QUIZ ──
+const questions = [
+  {q:'TMS 2\'ye göre hangi stok değerleme yöntemi yasaktır?', opts:['FIFO','Ağırlıklı Ortalama','LIFO','Hareketli Ortalama'], ans:2, exp:'TMS 2, LIFO (Son Giren İlk Çıkar) yöntemini açıkça yasaklar. Yalnızca FIFO ve Ağırlıklı Ortalama Maliyet kullanılabilir.'},
+  {q:'TFRS 16 kiralama standardı kiracı açısından ne getirmiştir?', opts:['Tüm kiraları gider yazmaya devam','Kullanım hakkı varlığı ve kira yükümlülüğü tanıma','Sadece finansal kiralamaları aktifleştirme','KDV istisnası sağlama'], ans:1, exp:'TFRS 16 ile kiracılar, birkaç istisna dışında tüm kira sözleşmeleri için Kullanım Hakkı Varlığı ve Kira Yükümlülüğü tanımak zorundadır.'},
+  {q:'2026 yılı brüt asgari ücret kaç TL\'dir?', opts:['28.075,50 TL','33.030,00 TL','26.005,50 TL','40.214,00 TL'], ans:1, exp:'01.01.2026 itibarıyla brüt asgari ücret 33.030,00 TL\'dir. Net asgari ücret ise GV ve DV tam istisnası sayesinde 28.075,50 TL\'dir. Bu, 2025\'e göre %27 artış anlamına gelir.'},
+  {q:'TFRS 15\'te hasılat tanıma kaç aşamalı modele dayanır?', opts:['3 aşamalı','4 aşamalı','5 aşamalı','6 aşamalı'], ans:2, exp:'TFRS 15\'te hasılat tanıma 5 aşamalı modele dayanır: (1) Sözleşmeyi belirle, (2) Performans yükümlülüklerini belirle, (3) İşlem fiyatını belirle, (4) Fiyatı dağıt, (5) Hasılatı tanı.'},
+  {q:'TMS 19 kapsamında kıdem tazminatı aktüeryal yeniden ölçümleri nereye alınır?', opts:['Kar/Zarar Tablosuna','Diğer Kapsamlı Gelir\'e (DKG)','Doğrudan özkaynağa','Birikmiş amortisman hesabına'], ans:1, exp:'2013 revizyonu sonrasında aktüeryal kazanç ve kayıpların tamamı DKG\'ye (Diğer Kapsamlı Gelir) alınmaktadır. Eski koridor yöntemi kullanılamaz.'},
+  {q:'Türkiye\'de genel kurumlar vergisi oranı 2026\'da kaçtır?', opts:['%20','%22','%25','%30'], ans:2, exp:'2026 yılında genel kurumlar vergisi oranı %25\'tir. Finans sektörü için bu oran %30 olarak uygulanmaktadır.'},
+  {q:'Cari oran nasıl hesaplanır?', opts:['Net Kâr / Net Satışlar','Dönen Varlıklar / KV Yükümlülükler','Toplam Borç / Özkaynaklar','EBIT / Finansman Giderleri'], ans:1, exp:'Cari Oran = Dönen Varlıklar / Kısa Vadeli Yükümlülükler. Genel kabul görmüş minimum değer 2\'dir; yani dönen varlıkların KV yükümlülüklerin en az iki katı olması beklenir.'},
+  {q:'KGK (Kamu Gözetimi Kurumu) hangi standartları yayımlar?', opts:['Yalnızca TMS/TFRS','Yalnızca BOBİ FRS','TMS/TFRS ve BOBİ FRS her ikisini','Yalnızca VUK esaslı tebliğleri'], ans:2, exp:'KGK, hem TMS/TFRS\'yi hem de BOBİ FRS\'yi yayımlar. Hangi standardın uygulanacağı işletmenin büyüklüğüne ve KAYİK statüsüne göre belirlenir.'},
+  {q:'Doğrusal amortisman yöntemi nasıl hesaplanır?', opts:['Maliyet × Amortisman Oranı','(Maliyet – Kalıntı Değer) / Faydalı Ömür','Net Defter Değeri × Oran','Maliyet / Birim Üretim'], ans:1, exp:'Doğrusal (Normal) Amortisman = (Maliyet – Kalıntı Değer) / Faydalı Ömür. TMS 16\'ya göre her varlık için kalıntı değer ve faydalı ömür işletme tarafından belirlenir.'},
+  {q:'2026 yılında işçi SGK prim oranı (toplam) kaçtır?', opts:['%14,0','%15,0','%20,75','%22,75'], ans:1, exp:'İşçi tarafından ödenen toplam SGK+İşsizlik prim oranı: %14 (SGK) + %1 (İşsizlik) = %15\'tir. İşveren toplam payı ise 2026\'da %22,75\'tir (kısa vadeli sigorta kolu oranı %2,25\'e yükseltildi).'}
+
+];
+let qi=0, score=0;
+function renderQ() {
+  const q = questions[qi];
+  document.getElementById('quizQ').textContent = (qi+1)+'. '+q.q;
+  document.getElementById('qNum').textContent = (qi+1)+' / '+questions.length;
+  document.getElementById('qBar').style.width = ((qi+1)/questions.length*100)+'%';
+  document.getElementById('qScore').textContent = 'Puan: '+score;
+  document.getElementById('quizExp').style.display='none';
+  document.getElementById('qNext').style.display='none';
+  const opts = document.getElementById('quizOpts');
+  opts.innerHTML = q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQ(this,${i},${q.ans})">${o}</button>`).join('');
+}
+function answerQ(btn, chosen, correct) {
+  document.querySelectorAll('.quiz-opt').forEach(b=>b.disabled=true);
+  if(chosen===correct) { btn.classList.add('correct'); score++; }
+  else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.quiz-opt')[correct].classList.add('correct');
+  }
+  const exp = document.getElementById('quizExp');
+  exp.textContent = questions[qi].exp;
+  exp.style.display='block';
+  document.getElementById('qScore').textContent='Puan: '+score;
+  document.getElementById('qNext').style.display='flex';
+}
+function nextQ() {
+  qi++;
+  if(qi >= questions.length) {
+    document.getElementById('quizBody').style.display='none';
+    const sc=document.getElementById('quizScore');
+    sc.style.display='block';
+    document.getElementById('scoreFinal').textContent=score+' / '+questions.length;
+    const msgs=['Tekrar çalışmanızı öneririz 📚','İyi bir başlangıç! Çalışmaya devam 💪','Güzel bir sonuç! 👍','Harika! Bilginiz çok iyi 🎉','Mükemmel! Tebrikler 🏆'];
+    document.getElementById('scoreMsg').textContent=msgs[Math.min(Math.floor(score/questions.length*4),4)];
+  } else { renderQ(); }
+}
+function resetQuiz() {
+  qi=0; score=0;
+  document.getElementById('quizBody').style.display='block';
+  document.getElementById('quizScore').style.display='none';
+  renderQ();
+}
+resetQuiz();
+
+// ── SEARCH ──
+function doSearch(term) {
+  // Clear previous highlights
+  document.querySelectorAll('.highlight').forEach(el => {
+    const parent = el.parentNode;
+    parent.replaceChild(document.createTextNode(el.textContent), el);
+    parent.normalize();
+  });
+  if (!term || term.length < 2) return;
+  const re = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  let firstSection = null;
+  document.querySelectorAll('.page-section').forEach(section => {
+    section.querySelectorAll('p, h2, h3, h4, li, td, pre').forEach(el => {
+      el.childNodes.forEach(node => {
+        if (node.nodeType === 3 && re.test(node.textContent)) {
+          if (!firstSection) firstSection = section.id;
+          const frag = document.createDocumentFragment();
+          node.textContent.split(re).forEach((part, i) => {
+            if (i % 2 === 1) {
+              const span = document.createElement('span');
+              span.className = 'highlight';
+              span.textContent = part;
+              frag.appendChild(span);
+            } else {
+              frag.appendChild(document.createTextNode(part));
+            }
+          });
+          node.parentNode.replaceChild(frag, node);
+        }
+      });
+    });
+  });
+  // Navigate to first section with results
+  if (firstSection) showSection(firstSection);
+}
+
+// ── FADE IN OBSERVER ──
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.style.animationPlayState='running'; });
+},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>{
+  el.style.animationPlayState='paused';
+  obs.observe(el);
+});
+</script>
+
+<script>
+const DOSYALAR = {
+  bordro: { url: '2026_Bordro_ve_Kidem_Hesaplayici.xlsx', fname: '2026_Bordro_ve_Kidem_Hesaplayici.xlsx' },
+  maliyet_xl: { url: 'Maliyet_BEP_Sapma_Analizi.xlsx', fname: 'Maliyet_BEP_Sapma_Analizi.xlsx' },
+  oran: { url: 'Mali_Oran_Analizi.xlsx', fname: 'Mali_Oran_Analizi.xlsx' },
+  vergi_pdf: { url: '2026_Vergi_Muhasebe_Rehberi.pdf', fname: '2026_Vergi_Muhasebe_Rehberi.pdf' },
+  maliyet_pdf: { url: 'Maliyet_Muhasebesi_Ders_Notlari.pdf', fname: 'Maliyet_Muhasebesi_Ders_Notlari.pdf' },
+};
+
+function indir(key) {
+  const d = DOSYALAR[key];
+  const a = document.createElement('a');
+  a.href = d.url;
+  a.download = d.fname;
+  a.target = '_blank';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
